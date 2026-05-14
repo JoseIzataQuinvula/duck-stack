@@ -29,14 +29,19 @@ function googleTranslateElementInit() {
 // Função para mudar o idioma programaticamente
 function changeLanguage(langCode) {
     // 1. Método por Cookie (Mais estável para o Google Translate)
-    // Usamos /auto/ para permitir que o Google detecte a origem ou force a partir de qualquer estado
-    const cookieValue = `/auto/${langCode}`;
-    document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
+    const cookieValue = `/pt/${langCode}`; // Usamos /pt/en ou /pt/pt para máxima compatibilidade
     
-    // Tenta também sem o path se estivermos num ambiente específico
-    document.cookie = `googtrans=${cookieValue}; SameSite=Lax`;
+    // Define o cookie de várias formas para garantir que o browser o aceite (especialmente em file://)
+    const cookieOptions = "path=/; SameSite=Lax";
+    document.cookie = `googtrans=${cookieValue}; ${cookieOptions}`;
+    
+    // Se estiver num servidor (não file://), tenta também com o domínio
+    if (location.hostname) {
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=${location.hostname}; SameSite=Lax`;
+    }
 
-    // 2. Tenta mudar o seletor se já existir (para feedback imediato antes do reload)
+    // 2. Tenta mudar o seletor se já existir
     const select = document.querySelector('.goog-te-combo');
     if (select) {
         select.value = langCode;
@@ -46,8 +51,10 @@ function changeLanguage(langCode) {
     // 3. Guarda a preferência
     localStorage.setItem('duck-stack-lang', langCode);
 
-    // 4. Recarrega para aplicar a tradução em todo o DOM (Padrão de Robustez)
-    location.reload();
+    // 4. Recarrega para aplicar
+    setTimeout(() => {
+        location.reload();
+    }, 100);
 }
 
 // Função de Alternância (Toggle)

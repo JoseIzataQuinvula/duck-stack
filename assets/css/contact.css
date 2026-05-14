@@ -267,6 +267,7 @@
 @media (min-width: 768px) {
     .btn-submit {
         width: max-content;
+        align-self: flex-end;
     }
 }
 

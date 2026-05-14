@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const btn = contactForm.querySelector('.btn-submit');
+            if (btn.disabled) return; // Bloqueio imediato para evitar duplo clique
+            
             const textoOriginal = btn.innerHTML;
-            const corOriginal = "#FF9F1C"; 
+            const corOriginal = getComputedStyle(btn).backgroundColor; 
             
             // 1. VALIDAÇÃO MANUAL
             let formValido = true;
@@ -83,11 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!formValido) {
+                btn.disabled = true;
                 btn.style.background = "#FFD700"; // Amarelo Gold
                 btn.style.color = "#000";
                 btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> PREENCHA OS CAMPOS';
                 
                 setTimeout(() => {
+                    btn.disabled = false;
                     btn.style.background = corOriginal;
                     btn.style.color = "#000";
                     btn.innerHTML = textoOriginal;
