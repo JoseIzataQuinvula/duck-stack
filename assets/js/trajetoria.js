@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.company-card-simple');
+    const cards = document.querySelectorAll('.company-card');
     const noResults = document.getElementById('no-results');
 
     function filterCompanies() {

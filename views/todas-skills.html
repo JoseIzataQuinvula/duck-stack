@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://joseizataquinvula.pages.dev/views/todas-HABILIDADES" />
-    <title>HABILIDADES - Duck Stack</title>
+    <link rel="canonical" href="https://joseizataquinvula.pages.dev/views/todas-skills" />
+    <title>Habilidades - Duck Stack</title>
     <link rel="icon" type="image/png" href="../duck-favicon.png">
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel='stylesheet' href="../assets/css/index.css">
@@ -27,10 +27,10 @@
             <div class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="../index.html#sobre">SOBRE</a></li>
-                <li><a href="../index.html#HABILIDADES">HABILIDADES</a></li>
-                <li><a href="../index.html#Projetos">PROJETOS</a></li>
+                <li><a href="../index.html#skills">HABILIDADES</a></li>
+                <li><a href="../index.html#projects">PROJETOS</a></li>
                 <li><a href="../index.html#companies">TRAJETÓRIA</a></li>
-                <li><a href="../index.html#CONTATO">CONTATO</a></li>
+                <li><a href="../index.html#contact">CONTATO</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +38,7 @@
     <main class="container">
         <div class="page-header">
             <span>Repositório Geral</span>
-            <h2>Todas as HABILIDADES</h2>
+            <h2>Todas as Habilidades</h2>
         </div>
 
         <div class="controls-wrapper">
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="all-HABILIDADES-grid" id="HABILIDADESGrid">
+        <div class="all-skills-grid" id="skillsGrid">
             <!-- ... badges ... -->
             
             <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
@@ -120,9 +120,9 @@
                 <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare"></div>
                 <div class="badge-label">Cloudflare</div>
             </a>
-            <a href="todos-projetos.html?filter=Tools" class="skill-badge badge-vsCódigo" data-tech="Tools" title="VS Código - Editor.">
-                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vsCódigo/vsCódigo-plain.svg" alt="VS Código"></div>
-                <div class="badge-label">VS Código</div>
+            <a href="todos-projetos.html?filter=Tools" class="skill-badge badge-vscode" data-tech="Tools" title="VS Code - Editor.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-plain.svg" alt="VS Code"></div>
+                <div class="badge-label">VS Code</div>
             </a>
             <a href="todos-projetos.html?filter=Tools" class="skill-badge badge-visualstudio" data-tech="Tools" title="Visual Studio - IDE.">
                 <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio"></div>
@@ -138,7 +138,7 @@
                 <div class="badge-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="Analytics"></div>
                 <div class="badge-label">G. Analytics</div>
             </a>
-            <a href="todos-projetos.html?filter=SEO" class="skill-badge badge-BUSCAR...sole" data-tech="Tools" title="Google Search Console - SEO.">
+            <a href="todos-projetos.html?filter=SEO" class="skill-badge badge-searchconsole" data-tech="Tools" title="Google Search Console - SEO.">
                 <div class="badge-icon"><img src="../assets/images/svg/Search Console.svg" alt="Search Console"></div>
                 <div class="badge-label">Search Console</div>
             </a>
@@ -148,6 +148,40 @@
             </div>
         </div>
     </main>
+
+    <div id="contactModal" class="share-modal" style="display: none;">
+        <div class="share-content">
+            <div class="share-header">
+                <h3>Como deseja me contactar?</h3>
+                <button onclick="closeContactModal()" class="close-modal">&times;</button>
+            </div>
+            <div class="share-body">
+                <p class="share-project-title">José Izata Quinvula - Full Stack</p>
+
+                <div class="share-options">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=joseizataquinvula885@gmail.com" target="_blank" class="share-item">
+                        <i class="fab fa-google"></i> <span>Gmail</span>
+                    </a>
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=joseizataquinvula885@gmail.com" target="_blank" class="share-item">
+                        <i class="fas fa-envelope"></i> <span>Outlook</span>
+                    </a>
+                    <a href="https://compose.mail.yahoo.com/?to=joseizataquinvula885@gmail.com" target="_blank" class="share-item">
+                        <i class="fab fa-yahoo"></i> <span>Yahoo</span>
+                    </a>
+                    <a href="mailto:joseizataquinvula885@gmail.com" class="share-item">
+                        <i class="fas fa-desktop"></i> <span>App Padrão</span>
+                    </a>
+                </div>
+
+                <div class="url-copy-wrapper">
+                    <input type="text" id="shareLinkInputEmail" value="joseizataquinvula885@gmail.com" readonly style="background: transparent; border: none; color: #888; flex: 1; padding: 0 15px; outline: none;">
+                    <button onclick="copyEmail(event)" id="copyEmailBtn">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
