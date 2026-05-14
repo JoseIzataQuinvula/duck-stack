@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://joseizataquinvula.pages.dev/views/todos-projetos" />
+    <title>Projetos - Duck Stack</title>
+    <link rel="icon" type="image/png" href="../duck-favicon.png">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel='stylesheet' href="../assets/css/index.css">
+    <link rel='stylesheet' href="../assets/css/project.css">
+    <link rel='stylesheet' href="../assets/css/repositorio.css">
+    <link rel='stylesheet' href="../assets/css/floating-buttons.css">
+    <style>
+        .all-Projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        @media (max-width: 1200px) {
+            .all-Projetos-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .all-Projetos-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../duck-favicon.png" alt="Duck Stack Logo" class="logo-img">
+                <span class="highlight">DUCK</span>STACK
+            </a>
+            <div class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html#sobre">SOBRE</a></li>
+                <li><a href="../index.html#HABILIDADES">HABILIDADES</a></li>
+                <li><a href="../index.html#Projetos">PROJETOS</a></li>
+                <li><a href="../index.html#companies">TRAJETÓRIA</a></li>
+                <li><a href="../index.html#CONTATO">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <span>Repositório Geral</span>
+            <h2>Todos os Projetos</h2>
+        </div>
+
+        <div class="controls-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="BUSCAR PROJETO...">
+            </div>
+
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="HTML">HTML</button>
+                <button class="filter-btn" data-filter="CSS">CSS</button>
+                <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+                <button class="filter-btn" data-filter="Backend">Backend</button>
+                <button class="filter-btn" data-filter="Python">Python</button>
+            </div>
+        </div>
+
+        <div class="all-Projetos-grid" id="projectsGrid">
+            <!-- ... cards ... -->
+            
+            <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
+                Nenhum projeto encontrado.
+            </div>
+            <!-- Projeto 1 -->
+            <div id="projeto1" class="project-card" data-tech="HTML CSS JavaScript" onclick="toggleProject(this)">
+                <div class="project-img">
+                    <img src="../assets/images/covers/01-projeto-capa.webp" alt="Ageux">
+                    <div class="project-actions-top">
+                        <button class="action-btn" title="Partilhar" onclick="shareProject(event, 'Ageux', '#projeto1')">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <a href="#" download class="action-btn" title="Baixar" onclick="validarLink(event, this)" target="_blank">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Ageux</h3>
+                        <div class="project-tags">
+                            <span class="tag-html">HTML</span>
+                            <span class="tag-css">CSS</span>
+                            <span class="tag-js">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://joseizataquinvula.github.io/ageux/" class="btn-project primary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span>Demonstração</span>
+                        </a>
+                        <a href="https://github.com/JoseIzataQuinvula/ageux" class="btn-project" target="_blank">
+                            <i class="fab fa-github"></i> <span>Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div id="projeto2" class="project-card" data-tech="HTML CSS" onclick="toggleProject(this)">
+                <div class="project-img">
+                    <img src="../assets/images/covers/02-projeto-capa.webp" alt="CSS-Slides">
+                    <div class="project-actions-top">
+                        <button class="action-btn" title="Partilhar" onclick="shareProject(event, 'CSS-Slides', '#projeto2')">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <a href="#" download class="action-btn" title="Baixar" onclick="validarLink(event, this)" target="_blank">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>CSS-Slides</h3>
+                        <div class="project-tags">
+                            <span class="tag-html">HTML</span>
+                            <span class="tag-css">CSS</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://joseizataquinvula.github.io/css-slides/" class="btn-project primary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span>Demonstração</span>
+                        </a>
+                        <a href="https://github.com/JoseIzataQuinvula/css-slides" class="btn-project" target="_blank">
+                            <i class="fab fa-github"></i> <span>Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div id="projeto3" class="project-card" data-tech="Python" onclick="toggleProject(this)">
+                <div class="project-img">
+                    <img src="../assets/images/covers/03-projeto-capa.webp" alt="Download Helper">
+                    <div class="project-actions-top">
+                        <button class="action-btn" title="Partilhar" onclick="shareProject(event, 'Download Helper', '#projeto3')">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <a href="#" download class="action-btn" title="Baixar" onclick="validarLink(event, this)" target="_blank">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-info">
+                        <h3>Download Helper</h3>
+                        <div class="project-tags">
+                            <span class="tag-python">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/JoseIzataQuinvula/downloadhelper" class="btn-project primary" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span>Demonstração</span>
+                        </a>
+                        <a href="https://github.com/JoseIzataQuinvula/downloadhelper" class="btn-project" target="_blank">
+                            <i class="fab fa-github"></i> <span>Código</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
+                Nenhum projeto encontrado.
+            </div>
+        </div>
+    </main>
+
+    <div id="shareModal" class="share-modal">
+        <div class="share-content">
+            <div class="share-header">
+                <h3>Partilha o meu projeto</h3>
+                <button onclick="closeShareModal()" class="close-modal">&times;</button>
+            </div>
+            <div class="share-body">
+                <p id="shareProjectName" class="share-project-title"></p>
+                <div class="share-options">
+                    <!-- Opções de partilha simplificadas -->
+                    <a href="#" id="shareWhatsApp" target="_blank" class="share-item"><i class="fab fa-whatsapp"></i> <span>WhatsApp</span></a>
+                    <a href="#" id="shareLinkedIn" target="_blank" class="share-item"><i class="fab fa-linkedin-in"></i> <span>LinkedIn</span></a>
+                </div>
+                <div class="url-copy-wrapper">
+                    <input type="text" id="shareLinkInput" readonly>
+                    <button onclick="copyShareLink(event)" id="copyBtn"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - 2026 DUCKSTACK | JOSÉ IZATA QUINVULA</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/repositorio.js"></script>
+    
+    <script src="../assets/js/floating-buttons.js"></script>
+    <script src="../assets/js/project.js"></script>
+    
+    
+    <button type="button" class="btn-side btn-coffee" onclick="openContactModal()"><i class="fas fa-coffee"></i></button>
+    <a href="#" class="btn-side btn-top" id="btn-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Google Translate Custom UI -->
+    
+    <button class="btn-side btn-lang" id="custom-lang-btn">PT</button>
+
+    <div id="google_translate_element" style="position:fixed; top:-1000px; left:-1000px; width:1px; height:1px; overflow:hidden;"></div>
+    <script src="../assets/js/translate-adapter.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+

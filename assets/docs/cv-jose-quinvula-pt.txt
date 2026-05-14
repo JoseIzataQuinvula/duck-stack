@@ -1,0 +1,52 @@
+JOSE IZATA QUINVULA
+Desenvolvedor Full Stack
+
+CONTACT INFORMATION
+Email: joseizataquinvula885@gmail.com
+Location: Luanda, Angola
+Website: https://joseizataquinvula.pages.dev/
+GitHub: https://github.com/JoseIzataQuinvula
+LinkedIn: https://www.linkedin.com/in/jose-izata-quinvula
+
+PROFESSIONAL SUMMARY
+Desenvolvedor Full Stack focado em transformar codigo em solucoes digitais 
+robustas e escalaveis. Especialista em arquitetura end-to-end e desenvolvimento 
+de sistemas complexos com rigor tecnico.
+
+AREAS OF EXPERTISE
+- Game Development (Unreal Engine, C++, Scripting)
+- Full Stack Web Development (Front-End & Back-End)
+- Database Management & APIs
+- Web Systems Administration
+
+PROFESSIONAL EXPERIENCE
+
+HC BUSINESS SCHOOL ANGOLA
+Full Stack Developer | 08/2025 - Present
+- Architecture of end-to-end tourism website (Front-end, Back-end, APIs).
+- Development and scripting for the "Queen Nzinga Mbande" game project 
+  using Unreal Engine.
+
+XINDA SOFT
+Web Development Intern | 08/2024 - 02/2025
+- Collaboration on web software development for video game management systems.
+- End-to-end support including implementation and testing (Front-end & Back-end).
+- Practical application of programming logic for functional solutions.
+
+TECHNICAL SKILLS
+Languages: C, C++, C#, Python, PHP, JavaScript, SQL
+Web Technologies: HTML5, CSS3, Node.js, REST APIs
+Tools & Engines: Unreal Engine, Git, GitHub
+
+EDUCATION
+Instituto Tecnico Privado Felizander, Luanda
+Technician in Management Informatics (High School) | 2020 - 2025
+- 5-year technical course completion.
+- Professional internship completed at Xinda Soft.
+
+LANGUAGES
+Portuguese: Native
+English: Basic
+
+-------------------------------------------------------------------------------
+JOSE IZATA QUINVULA - PORTFOLIO: https://joseizataquinvula.pages.dev/

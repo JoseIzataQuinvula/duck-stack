@@ -1,0 +1,128 @@
+/* Botão Voltar ao Topo e Café - 100% Quadrado */
+.btn-side {
+    position: fixed;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    z-index: 2000;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn-top {
+    bottom: 30px;
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+.btn-coffee {
+    bottom: 90px;
+    background-color: var(--primary);
+    /* Mesma cor que o botão de topo */
+    color: var(--dark);
+    opacity: 1 !important;
+    /* Sempre visível */
+    visibility: visible !important;
+    cursor: pointer;
+}
+
+.btn-lang {
+    bottom: 155px; /* Separado do botão de café (90+50+15 de gap) */
+    background-color: var(--gray);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 0.8rem;
+    font-weight: 900;
+    opacity: 1 !important;
+    visibility: visible !important;
+    cursor: pointer;
+}
+
+.btn-lang:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+.btn-side:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+    transform: translateY(-5px);
+}
+
+.btn-side.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu de Idiomas Customizado */
+.lang-menu {
+    position: fixed;
+    right: 30px;
+    bottom: 210px; /* Acima do botão PT */
+    background-color: var(--dark);
+    border: 1px solid var(--primary);
+    display: none;
+    flex-direction: column;
+    z-index: 2001;
+    width: 50px;
+}
+
+.lang-menu.active {
+    display: flex;
+}
+
+.lang-option {
+    width: 100%;
+    height: 40px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang-option:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+/* Esconder Widgets Originais do Google */
+.goog-te-banner-frame, 
+.goog-te-menu-value, 
+.goog-te-gadget span,
+.goog-te-banner,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+    display: none !important;
+}
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Fix para a barra branca do Google no topo */
+.skiptranslate {
+    display: none !important;
+}

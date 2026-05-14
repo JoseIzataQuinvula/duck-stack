@@ -1,0 +1,437 @@
+/* --- SEÇÃO PROJETOS --- */
+#projects {
+    padding: 80px 0;
+    background: #0a0a0a;
+    scroll-margin-top: 80px;
+}
+
+.projects-grid {
+    display: grid;
+    /* Força exatamente 3 colunas no desktop para manter a simetria com o título */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* --- CARD DO PROJETO (Compacto 300px) --- */
+.project-card {
+    position: relative;
+    background: var(--gray);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
+    scroll-margin-top: 120px;
+    height: 300px;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* --- BOTÕES DE AÇÃO (Topo) --- */
+.project-actions-top {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+.action-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--light);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+/* --- CONTEÚDO (Ajustado para não cortar) --- */
+.project-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 10;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.8) 60%,
+            transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.project-info h3 {
+    color: var(--light);
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    transition: all 0.4s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.project-info p {
+    display: none; /* Removido conforme solicitado para simplificar */
+}
+
+/* --- ESTADO ATIVO E HOVER (Ajuste de Fluxo) --- */
+.project-card:hover,
+.project-card.active {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+
+.project-card:hover .project-info h3,
+.project-card.active .project-info h3 {
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.project-card:hover .project-tags,
+.project-card.active .project-tags {
+    transform: translateY(0);
+}
+
+.project-card:hover .project-links,
+.project-card.active .project-links {
+    opacity: 1;
+    max-height: 40px;
+}
+
+.project-card:hover .project-actions-top,
+.project-card.active .project-actions-top {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- CATEGORIAS (TAGS) - Estilo Badge Mini --- */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+    transition: all 0.4s ease;
+}
+
+.project-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: #444; /* Cor padrão */
+}
+
+/* Cores específicas para as tags (Sincronizadas com as Skills) */
+.tag-html { background: #E34F26 !important; }
+.tag-css { background: #1572B6 !important; }
+.tag-js { background: #F7DF1E !important; color: #000 !important; }
+.tag-node { background: #339933 !important; }
+.tag-db { background: #4479A1 !important; }
+.tag-git { background: #F05032 !important; }
+.tag-python { background: #3776AB !important; }
+
+/* --- LINKS --- */
+.project-links {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.btn-project {
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex: 1;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-project.primary {
+    background: var(--primary);
+    /* Seu Amarelo */
+    border-color: var(--primary);
+    color: #000;
+}
+
+/* --- VER MAIS --- */
+
+
+.btn-view-more {
+    padding: 10px 25px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: 0.4s;
+    font-size: 0.9rem;
+}
+
+.btn-view-more:hover {
+    background: var(--primary);
+    color: #000;
+}
+
+
+
+
+
+
+
+
+
+/* --- MODAL DE PARTILHA COMPLETO --- */
+.share-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+.share-content {
+    background: #111112;
+    border: 1px solid var(--primary);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    /* Importante para o botão fechar */
+}
+
+.share-header h3 {
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin: 0 0 20px 0;
+}
+
+.share-project-title {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--primary);
+    padding-left: 10px;
+}
+
+/* --- ESTILO DOS ÍCONES --- */
+.share-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.share-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #1e1e20;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+/* FORÇAR AMARELO EM TODOS OS ÍCONES */
+.share-item i,
+.share-item svg {
+    /* Alguns CDNs usam SVG para o X */
+    color: var(--primary) !important;
+    fill: var(--primary) !important;
+    /* Para casos de ícones em SVG */
+    font-size: 1.3rem;
+    width: 25px;
+    text-align: center;
+}
+
+.share-item:hover {
+    border-color: var(--primary);
+    background: rgba(255, 159, 28, 0.1);
+}
+
+/* --- BARRA DE URL --- */
+.url-copy-wrapper {
+    display: flex;
+    background: #000;
+    border: 1px solid #2a2a2c;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+#shareLinkInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 0 15px;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+#copyBtn {
+    background: var(--primary);
+    border: none;
+    color: #000;
+    width: 55px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+/* Estilo específico para o ícone SVG do X */
+.icon-x-svg {
+    width: 20px;
+    /* Mesma largura dos ícones do Font Awesome */
+    height: 20px;
+    fill: var(--primary) !important;
+    /* Força a cor amarela no desenho */
+    flex-shrink: 0;
+}
+
+/* Garante que o item da lista alinhe corretamente com o novo SVG */
+.share-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #1e1e20;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+/* Mantém os outros ícones amarelos */
+.share-item i {
+    color: var(--primary) !important;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* --- PAGINAÇÃO (CARROSSEL MOBILE) --- */
+.projects-pagination {
+    display: none; /* Escondido por padrão, flex no mobile via media query */
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.project-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.project-dot.active {
+    background: var(--primary);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #projects {
+        padding: 50px 0;
+    }
+
+    .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 10px 0; /* Alinhado com o container */
+        margin: 0;         /* Sem margens negativas */
+        margin-top: 25px;
+        scrollbar-width: none;
+    }
+
+    .projects-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .project-card {
+        min-width: 100%; /* Exibe apenas um por vez, preenchendo o espaço do título */
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+}

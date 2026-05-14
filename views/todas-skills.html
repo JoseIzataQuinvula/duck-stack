@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://joseizataquinvula.pages.dev/views/todas-HABILIDADES" />
+    <title>HABILIDADES - Duck Stack</title>
+    <link rel="icon" type="image/png" href="../duck-favicon.png">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel='stylesheet' href="../assets/css/index.css">
+    <link rel='stylesheet' href="../assets/css/skill.css">
+    <link rel='stylesheet' href="../assets/css/repositorio.css">
+    <link rel='stylesheet' href="../assets/css/floating-buttons.css">
+</head>
+
+<body class="bg-dark">
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../duck-favicon.png" alt="Duck Stack Logo" class="logo-img">
+                <span class="highlight">DUCK</span>STACK
+            </a>
+            <div class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html#sobre">SOBRE</a></li>
+                <li><a href="../index.html#HABILIDADES">HABILIDADES</a></li>
+                <li><a href="../index.html#Projetos">PROJETOS</a></li>
+                <li><a href="../index.html#companies">TRAJETÓRIA</a></li>
+                <li><a href="../index.html#CONTATO">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <span>Repositório Geral</span>
+            <h2>Todas as HABILIDADES</h2>
+        </div>
+
+        <div class="controls-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="BUSCAR SKILL...">
+            </div>
+
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="Frontend">Frontend</button>
+                <button class="filter-btn" data-filter="Backend">Backend</button>
+                <button class="filter-btn" data-filter="Database">Bases de Dados</button>
+                <button class="filter-btn" data-filter="Tools">Ferramentas</button>
+            </div>
+        </div>
+
+        <div class="all-HABILIDADES-grid" id="HABILIDADESGrid">
+            <!-- ... badges ... -->
+            
+            <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
+                Nenhuma skill encontrada.
+            </div>
+            <a href="todos-projetos.html?filter=HTML" class="skill-badge badge-html" data-tech="Frontend" title="HTML5 - Estrutura de interfaces.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML5"></div>
+                <div class="badge-label">HTML5</div>
+            </a>
+            <a href="todos-projetos.html?filter=CSS" class="skill-badge badge-css" data-tech="Frontend" title="CSS3 - Design e Estilização.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS3"></div>
+                <div class="badge-label">CSS3</div>
+            </a>
+            <a href="todos-projetos.html?filter=JavaScript" class="skill-badge badge-js" data-tech="Frontend Backend" title="JavaScript - Lógica.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JS"></div>
+                <div class="badge-label">JavaScript</div>
+            </a>
+
+            <!-- BACKEND -->
+            <a href="todos-projetos.html?filter=Node" class="skill-badge badge-node" data-tech="Backend" title="Node.js - Servidores escaláveis.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" alt="Node.js"></div>
+                <div class="badge-label">Node.js</div>
+            </a>
+            <a href="todos-projetos.html?filter=Java" class="skill-badge badge-java" data-tech="Backend" title="Java - Aplicações robustas.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg" alt="Java"></div>
+                <div class="badge-label">Java</div>
+            </a>
+            <a href="todos-projetos.html?filter=PHP" class="skill-badge badge-php" data-tech="Backend" title="PHP - Web Backend.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP"></div>
+                <div class="badge-label">PHP</div>
+            </a>
+
+            <!-- DATABASE -->
+            <a href="todos-projetos.html?filter=SQL" class="skill-badge badge-db" data-tech="Database" title="MySQL - Gestão de dados.">
+                <div class="badge-icon"><img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL"></div>
+                <div class="badge-label">MySQL Server</div>
+            </a>
+            <a href="todos-projetos.html?filter=Database" class="skill-badge badge-phpmyadmin" data-tech="Database Tools" title="phpMyAdmin - Gestão DB.">
+                <div class="badge-icon"><img src="https://www.vectorlogo.zone/logos/phpmyadmin/phpmyadmin-icon.svg" alt="phpMyAdmin"></div>
+                <div class="badge-label">phpMyAdmin</div>
+            </a>
+            <a href="todos-projetos.html?filter=Cloud" class="skill-badge badge-aiven" data-tech="Database Cloud" title="Aiven - Cloud DB.">
+                <div class="badge-icon"><img src="../assets/images/svg/aiven.svg" alt="Aiven"></div>
+                <div class="badge-label">Aiven Cloud</div>
+            </a>
+
+            <!-- TOOLS / INFRA -->
+            <a href="todos-projetos.html?filter=Git" class="skill-badge badge-github" data-tech="Tools" title="GitHub - Controlo de Versão.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
+                <div class="badge-label">GitHub</div>
+            </a>
+            <a href="todos-projetos.html?filter=Git" class="skill-badge badge-git" data-tech="Tools" title="Git - Versionamento.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" alt="Git"></div>
+                <div class="badge-label">Git</div>
+            </a>
+            <a href="todos-projetos.html?filter=Cloud" class="skill-badge badge-render" data-tech="Tools Cloud" title="Render - Deployment.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/render.svg" alt="Render"></div>
+                <div class="badge-label">Render</div>
+            </a>
+            <a href="todos-projetos.html?filter=Security" class="skill-badge badge-cloudflare" data-tech="Tools" title="Cloudflare - CDN & Security.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare"></div>
+                <div class="badge-label">Cloudflare</div>
+            </a>
+            <a href="todos-projetos.html?filter=Tools" class="skill-badge badge-vsCódigo" data-tech="Tools" title="VS Código - Editor.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vsCódigo/vsCódigo-plain.svg" alt="VS Código"></div>
+                <div class="badge-label">VS Código</div>
+            </a>
+            <a href="todos-projetos.html?filter=Tools" class="skill-badge badge-visualstudio" data-tech="Tools" title="Visual Studio - IDE.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio"></div>
+                <div class="badge-label">Visual Studio</div>
+            </a>
+            <a href="todos-projetos.html?filter=Unreal" class="skill-badge badge-unreal" data-tech="Tools" title="Unreal Engine - Game Dev.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/unrealengine.svg" alt="Unreal"></div>
+                <div class="badge-label">Unreal Engine</div>
+            </a>
+
+            <!-- ANALYTICS -->
+            <a href="todos-projetos.html?filter=Analytics" class="skill-badge badge-analytics" data-tech="Tools" title="Google Analytics - Métricas.">
+                <div class="badge-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="Analytics"></div>
+                <div class="badge-label">G. Analytics</div>
+            </a>
+            <a href="todos-projetos.html?filter=SEO" class="skill-badge badge-BUSCAR...sole" data-tech="Tools" title="Google Search Console - SEO.">
+                <div class="badge-icon"><img src="../assets/images/svg/Search Console.svg" alt="Search Console"></div>
+                <div class="badge-label">Search Console</div>
+            </a>
+            
+            <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
+                Nenhuma skill encontrada.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - 2026 DUCKSTACK | JOSÉ IZATA QUINVULA</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/skill.js"></script>
+    
+    <script src="../assets/js/floating-buttons.js"></script>
+    
+    
+    <button type="button" class="btn-side btn-coffee" onclick="openContactModal()"><i class="fas fa-coffee"></i></button>
+    <a href="#" class="btn-side btn-top" id="btn-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Google Translate Custom UI -->
+    
+    <button class="btn-side btn-lang" id="custom-lang-btn">PT</button>
+
+    <div id="google_translate_element" style="position:fixed; top:-1000px; left:-1000px; width:1px; height:1px; overflow:hidden;"></div>
+    <script src="../assets/js/translate-adapter.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+

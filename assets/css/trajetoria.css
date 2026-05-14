@@ -1,0 +1,166 @@
+/* --- Seção Empresas (Trajetória Profissional) --- */
+#companies {
+    padding: 80px 0;
+    background: transparent;
+}
+
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Novo Card Profissional */
+.company-card {
+    background: #111112;
+    border: 1px solid #2a2a2c;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.company-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* HEADER: Título + Redes Sociais */
+.exp-header {
+    padding: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exp-company h3 {
+    color: var(--light);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exp-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.exp-socials a {
+    color: #555;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.exp-socials a:hover {
+    color: var(--primary);
+}
+
+/* BODY: Função + Datas + Descrição */
+.exp-body {
+    padding: 25px;
+    flex: 1;
+}
+
+.job-role {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.work-period {
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.work-period i {
+    font-size: 0.9rem;
+}
+
+.company-description {
+    color: #a0a0a5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* FOOTER: Website Link */
+.exp-footer {
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.company-site {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.company-site i {
+    font-size: 0.75rem;
+    color: var(--primary);
+}
+
+.company-site:hover {
+    color: var(--primary);
+}
+
+/* Tag de Status (Opcional) */
+.status-tag {
+    display: inline-block;
+    background: rgba(255, 159, 28, 0.1);
+    color: var(--primary);
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    margin-top: 5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 159, 28, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .companies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #companies {
+        padding: 50px 0;
+    }
+    
+    .exp-header, .exp-body, .exp-footer {
+        padding: 20px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .exp-socials {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}

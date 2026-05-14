@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://joseizataquinvula.pages.dev/views/todas-trajetorias" />
+    <title>Trajetória - Duck Stack</title>
+    <link rel="icon" type="image/png" href="../duck-favicon.png">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel='stylesheet' href="../assets/css/index.css">
+    <link rel='stylesheet' href="../assets/css/trajetoria.css">
+    <link rel='stylesheet' href="../assets/css/repositorio.css">
+    <link rel='stylesheet' href="../assets/css/floating-buttons.css">
+    <style>
+        .all-companies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        @media (max-width: 992px) {
+            .all-companies-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../duck-favicon.png" alt="Duck Stack Logo" class="logo-img">
+                <span class="highlight">DUCK</span>STACK
+            </a>
+            <div class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html#sobre">SOBRE</a></li>
+                <li><a href="../index.html#HABILIDADES">HABILIDADES</a></li>
+                <li><a href="../index.html#Projetos">PROJETOS</a></li>
+                <li><a href="../index.html#companies">TRAJETÓRIA</a></li>
+                <li><a href="../index.html#CONTATO">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <span>Percurso Profissional</span>
+            <h2>Trajetória Completa</h2>
+        </div>
+
+        <div class="controls-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="BUSCAR EMPRESA...">
+            </div>
+
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="Programador">Programador</button>
+                <button class="filter-btn" data-filter="Fundador">Fundador</button>
+                <button class="filter-btn" data-filter="Estagiário">Estagiário</button>
+            </div>
+        </div>
+
+        <div class="all-companies-grid" id="projectsGrid">
+            <!-- Hedging Consult -->
+            <article class="company-card" data-tech="Programador">
+                <div class="exp-header">
+                    <div class="exp-company">
+                        <h3>Hedging Consult</h3>
+                    </div>
+                    <div class="exp-socials">
+                        <a href="https://www.linkedin.com/company/hc-business-school/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/hcbusinesschool" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="exp-body">
+                    <h4 class="job-role">Programador</h4>
+                    <div class="work-period">
+                        <i class="far fa-calendar-alt"></i>
+                        Ago 2025 — Presente
+                    </div>
+                    <p class="company-description">Focado no desenvolvimento de sistemas internos e arquitetura de bases de dados.</p>
+                </div>
+                <div class="exp-footer">
+                    <a href="https://hedgingconsult.ao/" target="_blank" class="company-site">Visitar Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </article>
+
+            <!-- DabandaGames Studios -->
+            <article class="company-card" data-tech="Fundador Desenvolvedor">
+                <div class="exp-header">
+                    <div class="exp-company">
+                        <h3>DabandaGames Studios</h3>
+                    </div>
+                    <div class="exp-socials">
+                        <a href="https://www.facebook.com/people/Dabandagames-Studios/61552041745655/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@dabandagames" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://adelardo68.itch.io/" target="_blank"><i class="fab fa-itch-io"></i></a>
+                    </div>
+                </div>
+                <div class="exp-body">
+                    <h4 class="job-role">Co-Fundador / Desenvolvedor</h4>
+                    <div class="work-period">
+                        <i class="far fa-calendar-alt"></i>
+                        2022 — Presente
+                    </div>
+                    <p class="company-description">Estúdio angolano focado em criação de jogos no Unreal Engine e experiências interativas.</p>
+                </div>
+                <div class="exp-footer">
+                    <a href="https://dabandagames.pro/" target="_blank" class="company-site">Visitar Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </article>
+
+            <!-- Quadrinhos Angola -->
+            <article class="company-card" data-tech="Fundador">
+                <div class="exp-header">
+                    <div class="exp-company">
+                        <h3>Quadrinhos Angola</h3>
+                    </div>
+                    <div class="exp-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61558386342585" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/quadrinhosangola/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="exp-body">
+                    <h4 class="job-role">Fundador</h4>
+                    <div class="work-period">
+                        <i class="far fa-calendar-alt"></i>
+                        2024 — Presente
+                    </div>
+                    <p class="company-description">Promoção da nona arte em Angola, conectando criadores locais com a cena internacional.</p>
+                </div>
+            </article>
+
+            <!-- Xindasoft -->
+            <article class="company-card" data-tech="Estagiário">
+                <div class="exp-header">
+                    <div class="exp-company">
+                        <h3>Xindasoft</h3>
+                    </div>
+                    <div class="exp-socials">
+                        <a href="https://www.facebook.com/xindasoft" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="exp-body">
+                    <h4 class="job-role">Estagiário de Desenvolvimento</h4>
+                    <div class="work-period">
+                        <i class="far fa-calendar-alt"></i>
+                        Ago 2024 — Fev 2025
+                    </div>
+                    <p class="company-description">Suporte a sistemas ERP utilizando PHP, SQL e JavaScript.</p>
+                </div>
+                <div class="exp-footer">
+                    <a href="https://www.xindasoft.ao/" target="_blank" class="company-site">Visitar Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </article>
+
+            <div id="no-results" style="display:none; grid-column: 1 / -1; text-align: center; color: #888;">
+                Nenhuma empresa encontrada.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - 2026 DUCKSTACK | JOSÉ IZATA QUINVULA</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/trajetoria.js"></script>
+    
+    <script src="../assets/js/floating-buttons.js"></script>
+    
+    
+    <button type="button" class="btn-side btn-coffee" onclick="openContactModal()"><i class="fas fa-coffee"></i></button>
+    <a href="#" class="btn-side btn-top" id="btn-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Google Translate Custom UI -->
+    
+    <button class="btn-side btn-lang" id="custom-lang-btn">PT</button>
+
+    <div id="google_translate_element" style="position:fixed; top:-1000px; left:-1000px; width:1px; height:1px; overflow:hidden;"></div>
+    <script src="../assets/js/translate-adapter.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+

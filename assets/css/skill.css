@@ -1,0 +1,124 @@
+/* Seção Skills - Estilo Badge Profissional */
+#skills {
+    padding: 80px 0;
+}
+
+.skills-grid, .all-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+/* Base do Badge */
+.skill-badge {
+    display: inline-flex;
+    align-items: stretch;
+    height: 60px; /* Aumentado para o estilo 'Premium Block' */
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    min-width: 180px; /* Garante que não fiquem demasiado pequenos */
+}
+
+.skill-badge:hover {
+    transform: translateY(-5px) scale(1.02);
+    filter: brightness(1.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Lado Esquerdo (Ícone) */
+.badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Proporcional à altura */
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.badge-icon i {
+    font-size: 1.8rem; /* Ícone maior */
+}
+
+.badge-icon img {
+    width: 32px; /* Tamanho fixo para logos oficiais */
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Torna todos os logos brancos para máximo contraste */
+}
+
+/* Lado Direito (Texto) */
+.badge-label {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: 900;
+    font-size: 1.1rem; /* Texto maior e mais impactante */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #fff;
+    flex: 1;
+}
+
+/* Cores dos Badges */
+.badge-html { background: #E34F26; }
+.badge-css { background: #1572B6; }
+.badge-js { background: #F7DF1E; }
+.badge-js .badge-label { color: #000; }
+.badge-js .badge-icon { background: rgba(0, 0, 0, 0.1); color: #000; }
+.badge-node { background: #339933; }
+.badge-db { background: #4479A1; }
+.badge-git { background: #F05032; }
+.badge-cloudflare { background: #F38020; }
+.badge-vscode { background: #007ACC; }
+.badge-visualstudio { background: #5C2D91; }
+.badge-unreal { background: #000000; }
+.badge-phpmyadmin { background: #6C78AF; }
+.badge-aiven { background: #FF355E; }
+.badge-github { background: #181717; }
+.badge-render { background: #46E3B7; }
+.badge-analytics { background: #E37400; }
+.badge-searchconsole { background: #4285F4; }
+.badge-java { background: #007396; }
+.badge-php { background: #777BB4; }
+.badge-default { background: #555555; }
+.badge-more { background: var(--primary); }
+.badge-more .badge-label, .badge-more .badge-icon { color: var(--dark); }
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .skills-grid, .all-skills-grid {
+        flex-direction: column;
+    }
+
+    .skill-badge {
+        height: 50px;
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    .badge-icon {
+        width: 50px;
+    }
+
+    .badge-icon i {
+        font-size: 1.4rem;
+    }
+    
+    .badge-label {
+        padding: 0 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Se quiseres manter a descrição original como um tooltip ou algo assim, 
+   podes usar o atributo title ou um span escondido, mas para badges puros, 
+   o estilo acima é o mais fiel ao que pediste. */
