@@ -10,29 +10,43 @@ function googleTranslateElementInit() {
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
     }, 'google_translate_element');
+
+    // Nudge: Garante que o widget interno acompanhe a escolha do usuário após o carregamento
+    const savedLang = localStorage.getItem('duck-stack-lang') || 'pt';
+    const checkInterval = setInterval(() => {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            if (select.value !== savedLang) {
+                select.value = savedLang;
+                select.dispatchEvent(new Event('change'));
+            }
+            clearInterval(checkInterval);
+        }
+    }, 400);
+    setTimeout(() => clearInterval(checkInterval), 4000);
 }
 
 // Função para mudar o idioma programaticamente
 function changeLanguage(langCode) {
     // 1. Método por Cookie (Mais estável para o Google Translate)
-    document.cookie = "googtrans=/pt/" + langCode + "; path=/";
-    document.cookie = "googtrans=/pt/" + langCode + "; path=/; domain=." + window.location.hostname;
+    // Usamos /auto/ para permitir que o Google detecte a origem ou force a partir de qualquer estado
+    const cookieValue = `/auto/${langCode}`;
+    document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
     
-    // 2. Tenta mudar o seletor se já existir (para feedback imediato)
+    // Tenta também sem o path se estivermos num ambiente específico
+    document.cookie = `googtrans=${cookieValue}; SameSite=Lax`;
+
+    // 2. Tenta mudar o seletor se já existir (para feedback imediato antes do reload)
     const select = document.querySelector('.goog-te-combo');
     if (select) {
         select.value = langCode;
         select.dispatchEvent(new Event('change'));
     }
 
-    // 3. Atualiza o texto do botão principal
-    const btn = document.getElementById('custom-lang-btn');
-    if (btn) btn.textContent = langCode.toUpperCase();
-    
-    // 4. Guarda a preferência
+    // 3. Guarda a preferência
     localStorage.setItem('duck-stack-lang', langCode);
 
-    // 5. Recarrega para garantir a tradução (Padrão Profissional)
+    // 4. Recarrega para aplicar a tradução em todo o DOM (Padrão de Robustez)
     location.reload();
 }
 
@@ -47,15 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('custom-lang-btn');
     if (btn) {
         btn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             toggleLanguage();
         });
         
-        // Aplica o idioma guardado ao carregar a página (sem loop de reload)
-        const savedLang = localStorage.getItem('duck-stack-lang');
-        const btnText = document.getElementById('custom-lang-btn');
-        if (savedLang && btnText) {
-            btnText.textContent = savedLang.toUpperCase();
-        }
+        // Sincroniza o texto do botão com o estado atual
+        const savedLang = localStorage.getItem('duck-stack-lang') || 'pt';
+        btn.textContent = savedLang.toUpperCase();
     }
 });

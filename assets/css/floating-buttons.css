@@ -96,7 +96,7 @@
     color: var(--dark);
 }
 
-/* Esconder Widgets Originais do Google */
+/* Esconder Widgets Originais do Google e prevenir deslocamento */
 .goog-te-banner-frame, 
 .goog-te-menu-value, 
 .goog-te-gadget span,
@@ -106,6 +106,9 @@
 .goog-tooltip,
 .goog-tooltip:hover {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .goog-text-highlight {
@@ -115,14 +118,21 @@
 
 .goog-te-gadget {
     color: transparent !important;
+    font-size: 0 !important;
 }
 
+/* Previne que o Google Translate empurre o site para baixo */
 body {
     top: 0 !important;
     position: static !important;
 }
 
-/* Fix para a barra branca do Google no topo */
-.skiptranslate {
+html {
+    top: 0 !important;
+}
+
+/* Fix para a barra branca e frames extras */
+.skiptranslate, iframe.goog-te-menu-frame {
     display: none !important;
+    visibility: hidden !important;
 }
