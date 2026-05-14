@@ -151,15 +151,14 @@ nav {
 
 main.container {
     flex: 1;
-    /* REDUZIDO: Ajustado para um equilíbrio melhor entre o header e o conteúdo */
-    padding: 130px 20px 60px 20px !important;
+    padding: 120px 20px 40px 20px !important;
     contain: content;
 }
 
 footer {
     width: 100%;
-    padding: 40px 20px; /* Adicionado padding lateral para o alinhamento à esquerda */
-    text-align: left; /* Alinhado à esquerda globalmente conforme solicitado */
+    padding: 25px 20px;
+    text-align: left;
     border-top: 1px solid var(--gray);
     color: var(--text-muted);
     font-size: 0.85rem;
@@ -179,7 +178,7 @@ footer {
 
 /* --- ESTILOS DE CABEÇALHO DE SEÇÃO (Padronizado) --- */
 .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     text-align: left;
 }
 
@@ -211,17 +210,17 @@ footer {
 /* --- CONTROLOS DE SEÇÃO (Paginação + Ver Todos) --- */
 .section-controls {
     display: flex;
-    justify-content: center; /* Centralizado por padrão no desktop */
+    justify-content: center;
     align-items: center;
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 25px;
     width: 100%;
 }
 
 .view-more-container {
     display: flex;
-    justify-content: flex-end; /* Alinhado à direita no PC conforme pedido */
-    margin-top: 40px;
+    justify-content: flex-end;
+    margin-top: 25px;
     width: 100%;
 }
 

@@ -11,37 +11,39 @@ function googleTranslateElementInit() {
         autoDisplay: false
     }, 'google_translate_element');
 
-    // Nudge: Garante que o widget interno acompanhe a escolha do usuário após o carregamento
+    // Watchdog: Força a sincronização repetidamente nos primeiros 10 segundos
     const savedLang = localStorage.getItem('duck-stack-lang') || 'pt';
-    const checkInterval = setInterval(() => {
+    let attempts = 0;
+    const watchdog = setInterval(() => {
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             if (select.value !== savedLang) {
                 select.value = savedLang;
                 select.dispatchEvent(new Event('change'));
             }
-            clearInterval(checkInterval);
+            // Não paramos no primeiro sucesso, tentamos garantir por 5 segundos
+            if (attempts > 20) clearInterval(watchdog);
         }
-    }, 400);
-    setTimeout(() => clearInterval(checkInterval), 4000);
+        attempts++;
+        if (attempts > 50) clearInterval(watchdog); // Timeout de 10s
+    }, 200);
 }
 
 // Função para mudar o idioma programaticamente
 function changeLanguage(langCode) {
     // 1. Método por Cookie (Mais estável para o Google Translate)
-    const cookieValue = `/pt/${langCode}`; // Usamos /pt/en ou /pt/pt para máxima compatibilidade
+    const cookieValue = `/auto/${langCode}`; 
     
     // Define o cookie de várias formas para garantir que o browser o aceite (especialmente em file://)
     const cookieOptions = "path=/; SameSite=Lax";
     document.cookie = `googtrans=${cookieValue}; ${cookieOptions}`;
     
     // Se estiver num servidor (não file://), tenta também com o domínio
-    if (location.hostname) {
+    if (location.hostname && location.hostname !== 'localhost') {
         document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
-        document.cookie = `googtrans=${cookieValue}; path=/; domain=${location.hostname}; SameSite=Lax`;
     }
 
-    // 2. Tenta mudar o seletor se já existir
+    // 2. Tenta mudar o seletor se já existir para feedback visual imediato
     const select = document.querySelector('.goog-te-combo');
     if (select) {
         select.value = langCode;

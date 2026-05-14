@@ -153,7 +153,10 @@
             <div class="sobre-grid">
                 <div class="sobre-text">
                     <span class="tagline">Olá! Eu sou o</span>
-                    <h1>José Izata Quinvula</h1>
+                    <div class="hero-title">
+                        <h1 class="name-real">José Izata Quinvula</h1>
+                        <h1 class="name-brand">DUCK STACK</h1>
+                    </div>
                     <div class="divider"></div>
 
                     <p class="description">
@@ -237,21 +240,6 @@
                 <a href="views/todos-projetos.html?filter=Backend" class="skill-badge badge-node" title="Node.js - Desenvolvimento backend escalável.">
                     <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" alt="Node.js"></div>
                     <div class="badge-label">Node.js</div>
-                </a>
-
-                <a href="views/todos-projetos.html?filter=Java" class="skill-badge badge-java" title="Java - Aplicações robustas.">
-                    <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg" alt="Java"></div>
-                    <div class="badge-label">Java</div>
-                </a>
-
-                <a href="views/todos-projetos.html?filter=PHP" class="skill-badge badge-php" title="PHP - Backend Web.">
-                    <div class="badge-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP"></div>
-                    <div class="badge-label">PHP</div>
-                </a>
-
-                <a href="views/todos-projetos.html?filter=SQL" class="skill-badge badge-db" title="MySQL - Gestão de bases de dados.">
-                    <div class="badge-icon"><img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL"></div>
-                    <div class="badge-label">MySQL Server</div>
                 </a>
 
                 <a href="views/todas-skills.html" class="skill-badge badge-more" onclick="validarLink(event, this)">
@@ -378,16 +366,14 @@
                 </article>
             </div>
 
-            <div class="section-controls">
-                <div class="Projetos-pagination" id="ProjetosPagination">
+            <div class="section-controls" style="display:flex; justify-content:space-between; align-items:center;">
+                <div class="projects-pagination" id="projectsPagination">
                     <!-- Quadrados gerados por JS -->
                 </div>
 
-                <div class="view-more-container">
-                    <a href="views/todos-projetos.html" class="btn-view-more">
-                        <span>Ver Todos</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <a href="views/todos-projetos.html" class="btn-view-more">
+                    <span>Ver Todos</span> <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </section>
 
@@ -461,16 +447,14 @@
                 </article>
             </div>
             
-            <div class="section-controls">
+            <div class="section-controls" style="display:flex; justify-content:space-between; align-items:center;">
                 <div class="companies-pagination" id="companiesPagination">
                     <!-- Os quadradinhos serão gerados pelo JS -->
                 </div>
 
-                <div class="view-more-container">
-                    <a href="views/todas-trajetorias.html" class="btn-view-more">
-                        Ver Trajetória <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <a href="views/todas-trajetorias.html" class="btn-view-more">
+                    Ver Trajetória <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </section>
 

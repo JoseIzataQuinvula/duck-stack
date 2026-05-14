@@ -1,14 +1,14 @@
 /* --- Seção Contactos --- */
 #contact {
-    padding: 80px 0;
+    padding: 55px 0;
     background: transparent;
 }
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    margin-top: 50px;
+    gap: 35px;
+    margin-top: 30px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -18,9 +18,9 @@
 .availability-card {
     background: rgba(255, 159, 28, 0.05);
     border-left: 4px solid var(--primary);
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .availability-header {
@@ -164,7 +164,7 @@
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Reduzido para dar espaço aos ícones sem esticar muito */
+    gap: 8px;
 }
 
 .form-group {

@@ -1,14 +1,14 @@
 /* Seção Skills - Estilo Badge Profissional */
 #skills {
-    padding: 80px 0;
+    padding: 55px 0;
 }
 
 .skills-grid, .all-skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     justify-content: flex-start;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Base do Badge */

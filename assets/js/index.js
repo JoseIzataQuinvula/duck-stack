@@ -46,11 +46,12 @@ function setupMobileCarousel(gridSelector, paginationId, cardSelector, dotClass,
     if (cards.length === 0) return;
 
     function initCarousel() {
-        if (window.innerWidth <= 768) {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
             pagination.style.display = 'flex';
             pagination.innerHTML = '';
             
-            // Cria quadrados baseados na qtd (maxItems)
             const numDots = Math.min(cards.length, maxItems);
             
             for (let i = 0; i < numDots; i++) {
@@ -60,17 +61,13 @@ function setupMobileCarousel(gridSelector, paginationId, cardSelector, dotClass,
                 if (i === 0) dot.classList.add('active');
                 
                 dot.addEventListener('click', () => {
-                    const scrollPos = cards[i].offsetLeft - grid.offsetLeft - 15; // 15 é padding lateral
-                    grid.scrollTo({
-                        left: scrollPos,
-                        behavior: 'smooth'
-                    });
+                    const scrollPos = cards[i].offsetLeft - grid.offsetLeft - 15;
+                    grid.scrollTo({ left: scrollPos, behavior: 'smooth' });
                 });
                 
                 pagination.appendChild(dot);
             }
 
-            // Atualiza o quadrado ativo durante o scroll
             grid.addEventListener('scroll', () => {
                 const scrollCenter = grid.scrollLeft + (grid.clientWidth / 2);
                 let closestIndex = 0;
@@ -92,6 +89,7 @@ function setupMobileCarousel(gridSelector, paginationId, cardSelector, dotClass,
             });
         } else {
             pagination.style.display = 'none';
+            pagination.innerHTML = '';
         }
     }
 
@@ -104,9 +102,17 @@ function setupMobileCarousel(gridSelector, paginationId, cardSelector, dotClass,
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Carrossel de Empresas (Max: 4 empresas)
-    setupMobileCarousel('.companies-grid', 'companiesPagination', '.company-card-simple', 'company-dot', 2);
+    // 1. Carrossel de Empresas
+    setupMobileCarousel('.companies-grid', 'companiesPagination', '.company-card', 'company-dot', 2);
     
-    // 2. Carrossel de Projetos (Max: 3 projetos)
+    // 2. Carrossel de Projetos
     setupMobileCarousel('.projects-grid', 'projectsPagination', '.project-card', 'project-dot', 3);
+
+    // 3. Hover na imagem → troca o nome para DUCK STACK
+    const sobreImg = document.querySelector('.sobre-img');
+    const sobreGrid = document.querySelector('.sobre-grid');
+    if (sobreImg && sobreGrid) {
+        sobreImg.addEventListener('mouseenter', () => sobreGrid.classList.add('img-hovered'));
+        sobreImg.addEventListener('mouseleave', () => sobreGrid.classList.remove('img-hovered'));
+    }
 });

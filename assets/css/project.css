@@ -1,6 +1,6 @@
 /* --- SEÇÃO PROJETOS --- */
 #projects {
-    padding: 80px 0;
+    padding: 55px 0;
     background: #0a0a0a;
     scroll-margin-top: 80px;
 }
@@ -9,8 +9,8 @@
     display: grid;
     /* Força exatamente 3 colunas no desktop para manter a simetria com o título */
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 40px;
+    gap: 18px;
+    margin-top: 25px;
     margin-left: 0;
     margin-right: 0;
 }
@@ -385,11 +385,11 @@
 
 /* --- PAGINAÇÃO (CARROSSEL MOBILE) --- */
 .projects-pagination {
-    display: none; /* Escondido por padrão, flex no mobile via media query */
+    display: none;
     justify-content: flex-start;
     gap: 10px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .project-dot {
