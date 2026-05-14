@@ -217,17 +217,15 @@ footer {
     width: 100%;
 }
 
-.view-more-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 25px;
-    width: 100%;
+@media (max-width: 768px) {
+    .section-controls {
+        flex-direction: row;
+        margin-top: 10px;
+    }
 }
 
-@media (max-width: 768px) {
-    .view-more-container {
-        justify-content: center; /* Mantém centrado no mobile para ergonomia */
-    }
+.section-controls > .btn-view-more {
+    margin-left: auto;
 }
 
 .btn-view-more {

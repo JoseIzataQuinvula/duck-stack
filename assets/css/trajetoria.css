@@ -181,11 +181,11 @@
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         gap: 20px;
-        padding: 10px 0;
-        margin: 0;
-        margin-top: 25px;
+        padding: 0;
+        margin-top: 20px;
         scrollbar-width: none;
         grid-template-columns: unset;
+        align-items: stretch;
     }
 
     .companies-grid::-webkit-scrollbar {
@@ -196,9 +196,10 @@
         min-width: 100%;
         max-width: 100%;
         scroll-snap-align: start;
-        flex-shrink: 0;
         overflow: hidden;
         box-sizing: border-box;
+        margin-bottom: 0;
+        height: auto;
     }
 
     .exp-header, .exp-body, .exp-footer {
