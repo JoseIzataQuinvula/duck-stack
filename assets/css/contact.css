@@ -16,10 +16,9 @@
 
 /* --- BLOCO DE DISPONIBILIDADE --- */
 .availability-card {
-    background: rgba(255, 159, 28, 0.05);
-    border-left: 4px solid var(--primary);
-    padding: 20px;
-    border-radius: 8px;
+    background: transparent;
+    border-left: none;
+    padding: 0;
     margin-bottom: 25px;
 }
 
@@ -32,10 +31,10 @@
 
 /* CORRIGIDO: Seletor alterado para h3 para manter a hierarquia SEO/Acessibilidade */
 .availability-header h3 {
-    color: var(--primary);
+    color: #808085;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
     font-weight: 700;
     margin: 0;
 }
@@ -53,6 +52,11 @@
     height: 22px;
     margin-right: 10px;
     flex-shrink: 0;
+    stroke: #808085 !important;
+}
+
+.signal-icon-svg circle {
+    fill: #808085 !important;
 }
 
 .signal-icon-svg .signal-ring.inner {
@@ -121,8 +125,7 @@
 /* Redes Sociais no Contacto */
 .contact-socials-large {
     margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 0;
 }
 
 .contact-socials-large span {
