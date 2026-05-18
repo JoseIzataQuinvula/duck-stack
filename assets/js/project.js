@@ -129,6 +129,9 @@ function validarLink(event, element) {
     if (!href || href === '#' || href === '') {
         event.preventDefault();
         
+        // Guarda a página atual para o botão "Voltar" funcionar corretamente
+        sessionStorage.setItem('url_retorno', window.location.href);
+        
         // Verifica se estamos na pasta /views/ para ajustar o caminho do 503.html
         const isRepo = window.location.pathname.includes('/views/');
         const errorPage = isRepo ? '503.html' : 'views/503.html';
