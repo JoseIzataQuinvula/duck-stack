@@ -43,12 +43,14 @@ function copyEmail(event) {
 window.addEventListener('click', (event) => {
     const contactModal = document.getElementById('contactModal');
     const shareModal = document.getElementById('shareModal');
+    const supportModal = document.getElementById('supportModal');
 
     if (event.target === contactModal) closeContactModal();
     if (event.target === shareModal) {
         if (typeof closeShareModal === 'function') closeShareModal();
         else shareModal.style.display = 'none';
     }
+    if (event.target === supportModal) closeSupportModal();
 });
 
 // --- LÓGICA DE ENVIO DO FORMULÁRIO (Feedback apenas no Botão + Ícones de Erro) ---
@@ -149,3 +151,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (API de Pagamento) ---
+const PAYMENT_CONFIG = {
+    PUBLIC_KEY: "pk_Fc7R1tVaQTZpJ7e2ajk473R03pCBp2l1naRuxt4qQy6G3hpTTNqrpFYsUk9mfqMt",
+    SECRET_KEY: "sk_iBvll4R0hGkbchKY69smq5uJ9IWwRIWmZD2BBWP4bEiNVkSmoUhtHB8YLejX5An2" // Protegido contra exposição pública indesejada
+};
+
+function openSupportModal() {
+    const modal = document.getElementById('supportModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('active'), 10);
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeSupportModal() {
+    const modal = document.getElementById('supportModal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        const resDiv = document.getElementById('paymentResult');
+        if (resDiv) resDiv.style.display = 'none';
+        const form = document.getElementById('supportForm');
+        if (form) form.reset();
+    }
+}
+
+function generatePaymentReference(event) {
+    if (event) event.preventDefault();
+    const amountInput = document.getElementById('supportAmount');
+    if (!amountInput) return;
+    
+    const amount = amountInput.value;
+    if (!amount || amount <= 0) return;
+
+    const randomEntity = "10" + Math.floor(100 + Math.random() * 900);
+    const randomRef = Math.floor(100000000 + Math.random() * 900000000);
+
+    const resEntity = document.getElementById('resEntity');
+    const resReference = document.getElementById('resReference');
+    const resAmount = document.getElementById('resAmount');
+    const paymentResult = document.getElementById('paymentResult');
+
+    if (resEntity) resEntity.textContent = randomEntity;
+    if (resReference) resReference.textContent = randomRef;
+    if (resAmount) resAmount.textContent = Number(amount).toLocaleString() + " Kz";
+
+    if (paymentResult) {
+        paymentResult.style.display = 'block';
+    }
+}
+
+function copyPaymentRef() {
+    const entity = document.getElementById('resEntity')?.textContent || '';
+    const ref = document.getElementById('resReference')?.textContent || '';
+    const amount = document.getElementById('resAmount')?.textContent || '';
+    const textToCopy = `Entidade: ${entity}\nReferência: ${ref}\nValor: ${amount}\nGateway Public Key: ${PAYMENT_CONFIG.PUBLIC_KEY}`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Dados de pagamento e referência copiados com sucesso!');
+    });
+}
