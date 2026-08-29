@@ -216,10 +216,10 @@ function closeSupportModal() {
 function adjustAmount(delta) {
     const input = document.getElementById('supportAmount');
     if (input) {
-        let val = parseInt(input.value) || 0;
+        let val = parseFloat(input.value.toString().replace(',', '.')) || 0;
         val += delta;
-        if (val < 1) val = 1;
-        input.value = val;
+        if (val < 0) val = 0;
+        input.value = val.toFixed(2).replace('.', ',');
     }
 }
 
@@ -229,7 +229,8 @@ async function generatePaymentReference(event) {
     const submitBtn = document.getElementById('paySubmitBtn');
     if (!amountInput) return;
     
-    const amount = Number(amountInput.value);
+    const rawVal = amountInput.value.toString().replace(',', '.');
+    const amount = Number(rawVal);
     if (!amount || amount < 1) {
         showToast("O valor mínimo de pagamento é 1 AOA", "error");
         return;
@@ -283,8 +284,7 @@ async function generatePaymentReference(event) {
         reference = Math.floor(100000000 + Math.random() * 900000000);
     } finally {
         if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Gerar Referência Multibanco <i class="fas fa-barcode"></i>';
+            submitBtn.style.display = 'none'; // Oculta o botão de criar após gerar a referência
         }
     }
 
@@ -302,7 +302,12 @@ async function generatePaymentReference(event) {
     }
 }
 
-function copyPaymentRef() {
+function copyPaymentRef(event) {
+    if (event) event.preventDefault();
+    const btn = event.currentTarget;
+    const originalHTML = btn.innerHTML;
+    const originalBg = btn.style.background;
+
     const entity = document.getElementById('resEntity')?.textContent || '';
     const ref = document.getElementById('resReference')?.textContent || '';
     const amount = document.getElementById('resAmount')?.textContent || '';
@@ -310,5 +315,12 @@ function copyPaymentRef() {
 
     navigator.clipboard.writeText(textToCopy).then(() => {
         showToast("Dados de pagamento copiados com sucesso!");
+        btn.innerHTML = '<i class="fas fa-check"></i> Copiado com Sucesso!';
+        btn.style.background = '#28a745';
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = originalBg || '#333';
+        }, 2500);
     });
 }
