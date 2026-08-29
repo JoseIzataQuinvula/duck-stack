@@ -73,10 +73,14 @@
 .job-role-inline {
     display: block;
     color: var(--primary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 2px;
+    margin-bottom: 0;
+}
+
+.job-role-inline i {
+    margin-right: 2px;
 }
 
 .work-period-inline {
