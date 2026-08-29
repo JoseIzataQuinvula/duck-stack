@@ -22,7 +22,7 @@ A organização do diretório segue o padrão de separação de responsabilidade
 * **views:** Páginas de navegação interna e tratamento de erros.
 * **assets/css:** Folhas de estilo segregadas por componentes.
 * **assets/js:** Lógica de programação em JavaScript puro.
-* **assets/images:** Armazenamento de ativos estáticos e recursos visuais (incluindo `covers`, `previews` e `svg`).
+* **assets/img:** Armazenamento de ativos estáticos e recursos visuais (incluindo `covers`, `previews` e `svg`).
 * **assets/docs:** Arquivos de documentação técnica e currículos.
 
 ---
@@ -42,11 +42,11 @@ O desenvolvimento foi realizado sem a dependência de frameworks externos, prior
 
 ### Interface Desktop
 
-![Visualização Desktop](./assets/images/previews/preview-desktop.png)
+![Visualização Desktop](./assets/img/previews/preview-desktop.png)
 
 ### Interface Mobile
 
-![Visualização Mobile](./assets/images/previews/preview-mobile.png)
+![Visualização Mobile](./assets/img/previews/preview-mobile.png)
 
 ---
 
