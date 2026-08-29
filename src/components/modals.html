@@ -96,30 +96,30 @@
             <button onclick="closeSupportModal()" class="close-modal">&times;</button>
         </div>
         <div class="share-body">
-            <p class="share-project-title">Insira o valor que deseja contribuir via Referência Multibanco.</p>
-            <form id="supportForm" onsubmit="generatePaymentReference(event)">
-                <div style="margin-bottom: 15px;">
-                    <label for="supportAmount" style="display: block; color: #fff; margin-bottom: 8px; font-size: 0.9rem;">Valor (AOA):</label>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <button type="button" onclick="adjustAmount(-1)" style="background: #1a1a1c; color: #fff; border: 1px solid #333; width: 48px; height: 48px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: none !important; transform: none !important;">-</button>
-                        <input type="text" inputmode="numeric" id="supportAmount" name="amount" value="0,00" placeholder="0,00 AOA" required style="width: 100%; height: 48px; padding: 0 12px; background: #1a1a1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 1.1rem; text-align: center; outline: none; box-sizing: border-box; transition: none !important;">
-                        <button type="button" onclick="adjustAmount(1)" style="background: #1a1a1c; color: #fff; border: 1px solid #333; width: 48px; height: 48px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: none !important; transform: none !important;">+</button>
+            <div id="supportFormContainer">
+                <p class="share-project-title">Insira o valor que deseja contribuir via Referência Multibanco.</p>
+                <form id="supportForm" onsubmit="generatePaymentReference(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label for="supportAmount" style="display: block; color: #fff; margin-bottom: 8px; font-size: 0.9rem;">Valor (AOA):</label>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <button type="button" onclick="adjustAmount(-1)" style="background: #1a1a1c; color: #fff; border: 1px solid #333; width: 48px; height: 48px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: none !important; transform: none !important;">-</button>
+                            <input type="text" inputmode="numeric" id="supportAmount" name="amount" value="0,00" placeholder="0,00 AOA" required style="width: 100%; height: 48px; padding: 0 12px; background: #1a1a1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 1.1rem; text-align: center; outline: none; box-sizing: border-box; transition: none !important;">
+                            <button type="button" onclick="adjustAmount(1)" style="background: #1a1a1c; color: #fff; border: 1px solid #333; width: 48px; height: 48px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: none !important; transform: none !important;">+</button>
+                        </div>
                     </div>
-                </div>
-                <button type="submit" id="paySubmitBtn" class="btn-submit" style="width: 100%; height: 48px; background: var(--primary); color: #000; font-weight: 700; border: none; cursor: pointer; border-radius: 4px; text-transform: uppercase; font-size: 0.95rem; transition: none !important; transform: none !important;">
-                    Gerar Referência Multibanco <i class="fas fa-barcode"></i>
-                </button>
-            </form>
-            <div id="paymentResultContainer" style="min-height: 140px; margin-top: 20px;">
-                <div id="paymentResult" style="display: none; background: #161618; border: 1px solid #28a745; padding: 15px; border-radius: 4px;">
-                    <h4 style="color: #28a745; margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Referência Multibanco Gerada!</h4>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Entidade: <strong id="resEntity" style="color: #fff;">-</strong></p>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Referência: <strong id="resReference" style="color: #fff;">-</strong></p>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">Valor: <strong id="resAmount" style="color: #fff;">0,00 AOA</strong></p>
-                    <button type="button" onclick="copyPaymentRef(event)" style="background: #333; color: #fff; border: none; padding: 10px 14px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; width: 100%; transition: none !important; transform: none !important;">
-                        <i class="fas fa-copy"></i> Copiar Dados de Pagamento
+                    <button type="submit" id="paySubmitBtn" class="btn-submit" style="width: 100%; height: 48px; background: var(--primary); color: #000; font-weight: 700; border: none; cursor: pointer; border-radius: 4px; text-transform: uppercase; font-size: 0.95rem; transition: none !important; transform: none !important;">
+                        Gerar Referência Multibanco <i class="fas fa-barcode"></i>
                     </button>
-                </div>
+                </form>
+            </div>
+            <div id="paymentResult" style="display: none; background: #161618; border: 1px solid #28a745; padding: 15px; border-radius: 4px; margin-top: 20px;">
+                <h4 style="color: #28a745; margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Referência Multibanco Gerada!</h4>
+                <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Entidade: <strong id="resEntity" style="color: #fff;">-</strong></p>
+                <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Referência: <strong id="resReference" style="color: #fff;">-</strong></p>
+                <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">Valor: <strong id="resAmount" style="color: #fff;">0,00 AOA</strong></p>
+                <button type="button" onclick="copyPaymentRef(event)" style="background: #333; color: #fff; border: none; padding: 10px 14px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; width: 100%; transition: none !important; transform: none !important;">
+                    <i class="fas fa-copy"></i> Copiar Dados de Pagamento
+                </button>
             </div>
         </div>
     </div>

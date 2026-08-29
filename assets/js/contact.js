@@ -208,12 +208,17 @@ function closeSupportModal() {
         document.body.style.overflow = 'auto';
         const resDiv = document.getElementById('paymentResult');
         if (resDiv) resDiv.style.display = 'none';
+        const formContainer = document.getElementById('supportFormContainer');
+        if (formContainer) formContainer.style.display = '';
         const form = document.getElementById('supportForm');
         if (form) form.reset();
         const amountInput = document.getElementById('supportAmount');
         if (amountInput) amountInput.value = '0,00';
         const submitBtn = document.getElementById('paySubmitBtn');
-        if (submitBtn) submitBtn.style.display = '';
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Gerar Referência Multibanco <i class="fas fa-barcode"></i>';
+        }
     }
 }
 
@@ -286,24 +291,20 @@ async function generatePaymentReference(event) {
     } catch (err) {
         entity = "10" + Math.floor(100 + Math.random() * 900);
         reference = Math.floor(100000000 + Math.random() * 900000000);
-    } finally {
-        if (submitBtn) {
-            submitBtn.style.display = 'none'; // Oculta o botão de criar após gerar a referência
-        }
     }
 
     const resEntity = document.getElementById('resEntity');
     const resReference = document.getElementById('resReference');
     const resAmount = document.getElementById('resAmount');
     const paymentResult = document.getElementById('paymentResult');
+    const formContainer = document.getElementById('supportFormContainer');
 
     if (resEntity) resEntity.textContent = entity;
     if (resReference) resReference.textContent = reference;
     if (resAmount) resAmount.textContent = amount.toLocaleString('pt-PT', { minimumFractionDigits: 2 }) + " AOA";
 
-    if (paymentResult) {
-        paymentResult.style.display = 'block';
-    }
+    if (formContainer) formContainer.style.display = 'none';
+    if (paymentResult) paymentResult.style.display = 'block';
 }
 
 function copyPaymentRef(event) {
