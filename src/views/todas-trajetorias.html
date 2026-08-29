@@ -28,6 +28,33 @@
         @media (max-width: 992px) {
             .all-companies-grid { grid-template-columns: 1fr; }
         }
+        @media (max-width: 768px) {
+            .all-companies-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .exp-info-row {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px;
+            }
+            .exp-info-left {
+                min-width: auto !important;
+            }
+            .company-description {
+                display: block !important;
+                width: 100% !important;
+                margin: 0;
+            }
+            .exp-title-row {
+                flex-wrap: wrap;
+            }
+            .exp-socials {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 
