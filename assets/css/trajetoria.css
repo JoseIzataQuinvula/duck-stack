@@ -256,41 +256,24 @@
 
     .companies-grid,
     .all-companies-grid {
-        display: flex;
-        flex-direction: column;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 0;
         margin-top: 20px;
-        scrollbar-width: none;
-        grid-template-columns: unset;
-        align-items: stretch;
-    }
-
-    .companies-grid::-webkit-scrollbar,
-    .all-companies-grid::-webkit-scrollbar {
-        display: none;
     }
 
     .company-card {
-        min-width: 100%;
-        max-width: 100%;
-        scroll-snap-align: start;
         overflow: hidden;
         box-sizing: border-box;
-        margin-bottom: 0;
         height: auto;
     }
 
     .exp-header {
         padding: 20px;
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .exp-title-row {
-        width: 100%;
         flex-wrap: wrap;
     }
 
@@ -301,6 +284,10 @@
 
     .exp-info-left {
         min-width: auto;
+    }
+
+    .company-description {
+        width: 100%;
     }
 
     .exp-socials {
