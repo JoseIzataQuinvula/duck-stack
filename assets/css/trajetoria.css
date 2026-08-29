@@ -67,7 +67,30 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 0;
+    margin: 0 0 4px 0;
+}
+
+.job-role-inline {
+    display: block;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.work-period-inline {
+    display: block;
+    color: #888;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.work-period-inline i {
+    margin-right: 4px;
+    font-size: 0.7rem;
 }
 
 .exp-socials {
