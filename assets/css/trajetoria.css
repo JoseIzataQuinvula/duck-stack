@@ -294,8 +294,12 @@
         width: 100%;
     }
 
-    .job-role-inline {
-        text-align: left;
+    .exp-info-row {
+        flex-direction: column;
+    }
+
+    .exp-info-left {
+        min-width: auto;
     }
 
     .exp-socials {
