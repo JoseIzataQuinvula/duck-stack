@@ -123,6 +123,25 @@
     overflow-wrap: break-word;
 }
 
+/* Achievement Badge */
+.achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 159, 28, 0.1);
+    border: 1px solid rgba(255, 159, 28, 0.3);
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.achievement-badge i {
+    color: #ffd700;
+}
+
 /* FOOTER: Website Link */
 .exp-footer {
     padding: 20px 25px;
