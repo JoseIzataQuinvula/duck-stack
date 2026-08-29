@@ -154,8 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (PlinqPay API & Multibanco) ---
 const PAYMENT_CONFIG = {
-    PUBLIC_KEY: "pk_Fc7R1tVaQTZpJ7e2ajk473R03pCBp2l1naRuxt4qQy6G3hpTTNqrpFYsUk9mfqMt",
-    SECRET_KEY: "sk_iBvll4R0hGkbchKY69smq5uJ9IWwRIWmZD2BBWP4bEiNVkSmoUhtHB8YLejX5An2"
+    PUBLIC_KEY: "pk_Fc7R1tVaQTZpJ7e2ajk473R03pCBp2l1naRuxt4qQy6G3hpTTNqrpFYsUk9mfqMt"
 };
 
 function showToast(message, type = 'success') {
