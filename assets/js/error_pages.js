@@ -45,7 +45,7 @@ function redirectToError(currentSectionId = null) {
 
     sessionStorage.setItem('voltandoDeErro', 'true');
 
-    // ConstrÃ³i a URL de retorno com o hash da secÃ§Ã£o, se existir
+    // Constrói a URL de retorno com o hash da secção, se existir
     let returnUrl = window.location.href.split('#')[0];
     const sectionHash = currentSectionId ? `#${currentSectionId}` : window.location.hash;
 
@@ -55,10 +55,11 @@ function redirectToError(currentSectionId = null) {
     const isInsidePages = path.includes('/views/');
 
     if (isInsidePages) {
-        window.location.href = "404.html";
+        window.location.href = "404.html?code=404";
     } else {
-        window.location.href = "views/404.html";
+        window.location.href = "views/404.html?code=404";
     }
+}
 }
 
 /* --- Listener de Cliques e ValidaÃ§Ã£o de Links --- */
@@ -168,9 +169,9 @@ function redirectToUnavailable(currentSectionId, type) {
     sessionStorage.setItem('tipo_indisponivel', type);
 
     if (isInsidePages) {
-        window.location.href = `503.html?tipo=${type}`;
+        window.location.href = `404.html?code=503&tipo=${type}`;
     } else {
-        window.location.href = `views/503.html?tipo=${type}`;
+        window.location.href = `views/404.html?code=503&tipo=${type}`;
     }
 }
 
@@ -198,6 +199,30 @@ const sectionObserver = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Limpa a URL imediatamente
     cleanVisualURL();
+
+    // 1.5. Renderização dinâmica do Erro (403, 404, 503)
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code') || '404';
+    const codeEl = document.querySelector('.error-code');
+    const titleEl = document.querySelector('.error-content h1');
+    const descEl = document.querySelector('.error-content p');
+
+    if (code === '403') {
+        if (codeEl) codeEl.textContent = '403';
+        if (titleEl) titleEl.textContent = 'Acesso Restrito';
+        if (descEl) descEl.textContent = 'Você não tem permissão para acessar esta área protegida do Duck Stack.';
+        document.title = '403 - Acesso Negado | Duck Stack';
+    } else if (code === '503') {
+        if (codeEl) codeEl.textContent = '503';
+        if (titleEl) titleEl.textContent = 'Conteúdo Indisponível';
+        if (descEl) descEl.textContent = 'De momento, este conteúdo ainda não se encontra disponível para o público.';
+        document.title = '503 - Indisponível | Duck Stack';
+    } else {
+        if (codeEl) codeEl.textContent = '404';
+        if (titleEl) titleEl.textContent = 'Caminho Perdido';
+        if (descEl) descEl.textContent = 'Parece que o link que você tentou acessar está quebrado ou não existe mais.';
+        document.title = '404 - Caminho Perdido | Duck Stack';
+    }
 
     // 2. Configura o botÃ£o de voltar
     const goBackBtn = document.getElementById('goBackBtn');
