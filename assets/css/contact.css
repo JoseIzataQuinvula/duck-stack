@@ -123,16 +123,19 @@
 }
 
 /* Redes Sociais no Contacto */
-.contact-socials-large {
-    margin-top: 40px;
+.contact-socials {
+    margin-top: 35px;
     padding-top: 0;
 }
 
-.contact-socials-large span {
+.contact-socials span {
     color: #808085;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .social-links-grid {
@@ -142,8 +145,8 @@
 }
 
 .social-box {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -151,16 +154,16 @@
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    transition: none !important;
     text-decoration: none;
 }
 
 .social-box:hover {
     background: var(--primary);
     color: #000;
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 159, 28, 0.3);
+    transform: none !important;
+    box-shadow: none;
 }
 
 /* Formulário */
