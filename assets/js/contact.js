@@ -328,3 +328,18 @@ function copyPaymentRef(event) {
         }, 2500);
     });
 }
+
+function backToForm() {
+    const paymentResult = document.getElementById('paymentResult');
+    const formContainer = document.getElementById('supportFormContainer');
+    const amountInput = document.getElementById('supportAmount');
+    const submitBtn = document.getElementById('paySubmitBtn');
+
+    if (paymentResult) paymentResult.style.display = 'none';
+    if (formContainer) formContainer.style.display = '';
+    if (amountInput) amountInput.value = '0,00';
+    if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Gerar Referência Multibanco <i class="fas fa-barcode"></i>';
+    }
+}
