@@ -210,6 +210,10 @@ function closeSupportModal() {
         if (resDiv) resDiv.style.display = 'none';
         const form = document.getElementById('supportForm');
         if (form) form.reset();
+        const amountInput = document.getElementById('supportAmount');
+        if (amountInput) amountInput.value = '0,00';
+        const submitBtn = document.getElementById('paySubmitBtn');
+        if (submitBtn) submitBtn.style.display = '';
     }
 }
 
