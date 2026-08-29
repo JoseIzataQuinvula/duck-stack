@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const components = [
         { id: 'component-header', file: 'src/components/header.html' },
+        { id: 'component-sobre', file: 'src/components/sobre.html' },
+        { id: 'component-skills', file: 'src/components/skills.html' },
+        { id: 'component-projects', file: 'src/components/projects.html' },
+        { id: 'component-trajetoria', file: 'src/components/trajetoria.html' },
+        { id: 'component-contact', file: 'src/components/contact.html' },
         { id: 'component-footer', file: 'src/components/footer.html' },
+        { id: 'component-modals', file: 'src/components/modals.html' }
     ];
 
     for (const comp of components) {

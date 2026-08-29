@@ -1,0 +1,125 @@
+<section id="projects">
+    <div class="section-header">
+        <span class="tagline">Meu Portfólio</span>
+        <h2>Projetos em Destaque</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="projects-grid">
+        <article id="projeto1" class="project-card" onclick="toggleProject(this)">
+            <div class="project-img">
+                <img src="assets/img/projetos/ageux-capa.webp"
+                    alt="Projeto Ageux desenvolvido por José Izata Quinvula" loading="lazy" decoding="async"
+                    width="913" height="522">
+                <div class="project-actions-top">
+                    <button class="action-btn" title="Partilhar"
+                        onclick="shareProject(event, 'Ageux', '#projeto1')">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <a href="#" download class="action-btn" title="Baixar" onclick="validarLink(event, this)"
+                        target="_blank">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-info">
+                    <h3>Ageux</h3>
+                    <div class="project-tags">
+                        <span class="tag-html">HTML</span>
+                        <span class="tag-css">CSS</span>
+                        <span class="tag-js">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://joseizataquinvula.github.io/ageux/" class="btn-project primary"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> <span>Demonstração</span>
+                    </a>
+                    <a href="https://github.com/JoseIzataQuinvula/ageux" class="btn-project"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fab fa-github"></i> Código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article id="projeto2" class="project-card" onclick="toggleProject(this)">
+            <div class="project-img">
+                <img src="assets/img/projetos/css-slides-capa.webp" alt="Projeto CSS-Slides de José Izata"
+                    loading="lazy" decoding="async" width="715" height="522">
+                <div class="project-actions-top">
+                    <button class="action-btn" title="Partilhar"
+                        onclick="shareProject(event, 'CSS-Slides', '#projeto2')">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <a href="#" download class="action-btn" title="Baixar" onclick="validarLink(event, this)"
+                        target="_blank">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-info">
+                    <h3>CSS-Slides</h3>
+                    <div class="project-tags">
+                        <span class="tag-html">HTML</span>
+                        <span class="tag-css">CSS</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://joseizataquinvula.github.io/css-slides/" class="btn-project primary"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> <span>Demonstração</span>
+                    </a>
+                    <a href="https://github.com/JoseIzataQuinvula/css-slides" class="btn-project"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fab fa-github"></i> Código
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article id="projeto3" class="project-card" onclick="toggleProject(this)">
+            <div class="project-img">
+                <img src="assets/img/projetos/download-helper-capa.webp" alt="Download Helper - Ferramenta de Quinvula"
+                    loading="lazy" decoding="async" width="648" height="648">
+                <div class="project-actions-top">
+                    <button class="action-btn" title="Partilhar"
+                        onclick="shareProject(event, 'Download Helper', '#projeto3')">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <a href="https://github.com/JoseIzataQuinvula/downloadhelper/releases/tag/v1.0.1-beta"
+                        download class="action-btn" title="Baixar" onclick="validarLink(event, this)"
+                        target="_blank">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-info">
+                    <h3>Download Helper</h3>
+                    <div class="project-tags">
+                        <span class="tag-python">Python</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/JoseIzataQuinvula/downloadhelper" class="btn-project primary"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fab fa-github"></i> <span>Repositório</span>
+                    </a>
+                    <a href="https://github.com/JoseIzataQuinvula/downloadhelper/releases" class="btn-project"
+                        onclick="validarLink(event, this)" target="_blank">
+                        <i class="fas fa-download"></i> Releases
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="view-more-container" style="text-align: center; margin-top: 40px;">
+        <a href="src/views/todos-projetos.html" class="btn-view-more">
+            Ver Todos os Projetos <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
