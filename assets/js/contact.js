@@ -152,11 +152,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (PlinqPay API) ---
+// --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (PlinqPay API & Multibanco) ---
 const PAYMENT_CONFIG = {
     PUBLIC_KEY: "pk_Fc7R1tVaQTZpJ7e2ajk473R03pCBp2l1naRuxt4qQy6G3hpTTNqrpFYsUk9mfqMt",
     SECRET_KEY: "sk_iBvll4R0hGkbchKY69smq5uJ9IWwRIWmZD2BBWP4bEiNVkSmoUhtHB8YLejX5An2"
 };
+
+function showToast(message, type = 'success') {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; flex-direction: column; gap: 10px;';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        background: ${type === 'error' ? '#dc3545' : '#28a745'};
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+    `;
+    toast.innerHTML = `<i class="fas ${type === 'error' ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i> ${message}`;
+    
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
 
 function openSupportModal() {
     const modal = document.getElementById('supportModal');
@@ -197,7 +230,10 @@ async function generatePaymentReference(event) {
     if (!amountInput) return;
     
     const amount = Number(amountInput.value);
-    if (!amount || amount <= 0) return;
+    if (!amount || amount < 1) {
+        showToast("O valor mínimo de pagamento é 1 AOA", "error");
+        return;
+    }
 
     if (submitBtn) {
         submitBtn.disabled = true;
@@ -248,7 +284,7 @@ async function generatePaymentReference(event) {
     } finally {
         if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Gerar Referência PlinqPay <i class="fas fa-barcode"></i>';
+            submitBtn.innerHTML = 'Gerar Referência Multibanco <i class="fas fa-barcode"></i>';
         }
     }
 
@@ -259,7 +295,7 @@ async function generatePaymentReference(event) {
 
     if (resEntity) resEntity.textContent = entity;
     if (resReference) resReference.textContent = reference;
-    if (resAmount) resAmount.textContent = amount.toLocaleString() + " Kz";
+    if (resAmount) resAmount.textContent = amount.toLocaleString('pt-PT', { minimumFractionDigits: 2 }) + " AOA";
 
     if (paymentResult) {
         paymentResult.style.display = 'block';
@@ -270,9 +306,9 @@ function copyPaymentRef() {
     const entity = document.getElementById('resEntity')?.textContent || '';
     const ref = document.getElementById('resReference')?.textContent || '';
     const amount = document.getElementById('resAmount')?.textContent || '';
-    const textToCopy = `PlinqPay - Entidade: ${entity}\nReferência: ${ref}\nValor: ${amount}\nGateway Public Key: ${PAYMENT_CONFIG.PUBLIC_KEY}`;
+    const textToCopy = `Multibanco - Entidade: ${entity}\nReferência: ${ref}\nValor: ${amount}`;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
-        alert('Dados de pagamento e referência copiados com sucesso!');
+        showToast("Dados de pagamento copiados com sucesso!");
     });
 }
