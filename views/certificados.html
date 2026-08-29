@@ -203,20 +203,24 @@
                 <button onclick="closeSupportModal()" class="close-modal">&times;</button>
             </div>
             <div class="share-body">
-                <p class="share-project-title">Insira o valor que deseja contribuir para apoiar o desenvolvimento contínuo.</p>
+                <p class="share-project-title">Insira o valor que deseja contribuir via PlinqPay.</p>
                 <form id="supportForm" onsubmit="generatePaymentReference(event)">
                     <div style="margin-bottom: 15px;">
-                        <label for="supportAmount" style="display: block; color: #fff; margin-bottom: 8px; font-size: 0.9rem;">Valor (Kz / USD):</label>
-                        <input type="number" id="supportAmount" name="amount" min="100" step="50" placeholder="Ex: 1000" required style="width: 100%; padding: 12px; background: #1a1a1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 1rem;">
+                        <label for="supportAmount" style="display: block; color: #fff; margin-bottom: 8px; font-size: 0.9rem;">Valor (Kz):</label>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <button type="button" onclick="adjustAmount(-500)" style="background: #222; color: #fff; border: 1px solid #333; padding: 10px 14px; border-radius: 4px; cursor: pointer; font-weight: bold;">-</button>
+                            <input type="number" id="supportAmount" name="amount" min="1" step="50" value="1000" required style="width: 100%; padding: 12px; background: #1a1a1c; border: 1px solid #333; color: #fff; border-radius: 4px; font-size: 1rem; text-align: center; outline: none;">
+                            <button type="button" onclick="adjustAmount(500)" style="background: #222; color: #fff; border: 1px solid #333; padding: 10px 14px; border-radius: 4px; cursor: pointer; font-weight: bold;">+</button>
+                        </div>
                     </div>
-                    <button type="submit" class="btn-submit" style="width: 100%; padding: 12px; background: var(--primary); color: #000; font-weight: 700; border: none; cursor: pointer; border-radius: 4px; text-transform: uppercase;">
-                        Gerar Referência de Pagamento <i class="fas fa-barcode"></i>
+                    <button type="submit" id="paySubmitBtn" class="btn-submit" style="width: 100%; padding: 12px; background: var(--primary); color: #000; font-weight: 700; border: none; cursor: pointer; border-radius: 4px; text-transform: uppercase;">
+                        Gerar Referência PlinqPay <i class="fas fa-barcode"></i>
                     </button>
                 </form>
                 <div id="paymentResult" style="margin-top: 20px; display: none; background: #161618; border: 1px solid #28a745; padding: 15px; border-radius: 4px;">
                     <h4 style="color: #28a745; margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Referência Gerada com Sucesso!</h4>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Entidade: <strong id="resEntity" style="color: #fff;">01234</strong></p>
-                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Referência: <strong id="resReference" style="color: #fff;">123 456 789</strong></p>
+                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Entidade: <strong id="resEntity" style="color: #fff;">-</strong></p>
+                    <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 8px;">Referência: <strong id="resReference" style="color: #fff;">-</strong></p>
                     <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px;">Valor: <strong id="resAmount" style="color: #fff;">0.00</strong> Kz</p>
                     <button type="button" onclick="copyPaymentRef()" style="background: #333; color: #fff; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">
                         <i class="fas fa-copy"></i> Copiar Dados de Pagamento

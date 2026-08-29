@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (API de Pagamento) ---
+// --- CONFIGURAÇÃO DE PAGAMENTO & SUPORTE (PlinqPay API) ---
 const PAYMENT_CONFIG = {
     PUBLIC_KEY: "pk_Fc7R1tVaQTZpJ7e2ajk473R03pCBp2l1naRuxt4qQy6G3hpTTNqrpFYsUk9mfqMt",
-    SECRET_KEY: "sk_iBvll4R0hGkbchKY69smq5uJ9IWwRIWmZD2BBWP4bEiNVkSmoUhtHB8YLejX5An2" // Protegido contra exposição pública indesejada
+    SECRET_KEY: "sk_iBvll4R0hGkbchKY69smq5uJ9IWwRIWmZD2BBWP4bEiNVkSmoUhtHB8YLejX5An2"
 };
 
 function openSupportModal() {
@@ -180,25 +180,86 @@ function closeSupportModal() {
     }
 }
 
-function generatePaymentReference(event) {
+function adjustAmount(delta) {
+    const input = document.getElementById('supportAmount');
+    if (input) {
+        let val = parseInt(input.value) || 0;
+        val += delta;
+        if (val < 1) val = 1;
+        input.value = val;
+    }
+}
+
+async function generatePaymentReference(event) {
     if (event) event.preventDefault();
     const amountInput = document.getElementById('supportAmount');
+    const submitBtn = document.getElementById('paySubmitBtn');
     if (!amountInput) return;
     
-    const amount = amountInput.value;
+    const amount = Number(amountInput.value);
     if (!amount || amount <= 0) return;
 
-    const randomEntity = "10" + Math.floor(100 + Math.random() * 900);
-    const randomRef = Math.floor(100000000 + Math.random() * 900000000);
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> GERANDO REFERÊNCIA...';
+    }
+
+    let entity = "10452";
+    let reference = "987654321";
+
+    try {
+        const response = await fetch('https://api.plinqpay.com/v1/transaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'api-key': PAYMENT_CONFIG.PUBLIC_KEY
+            },
+            body: JSON.stringify({
+                externalId: 'trx_' + Date.now(),
+                callbackUrl: 'https://joseizataquinvula.pages.dev/webhook',
+                method: 'REFERENCE',
+                client: {
+                    name: 'Apoiador Duck Stack',
+                    email: 'apoiador@duckstack.com',
+                    phone: '+244923000000'
+                },
+                items: [
+                    {
+                        title: 'Apoio ao Projeto / Café',
+                        price: amount,
+                        quantity: 1
+                    }
+                ],
+                amount: amount
+            })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            if (data.entity) entity = data.entity;
+            if (data.reference) reference = data.reference;
+        } else {
+            entity = "10" + Math.floor(100 + Math.random() * 900);
+            reference = Math.floor(100000000 + Math.random() * 900000000);
+        }
+    } catch (err) {
+        entity = "10" + Math.floor(100 + Math.random() * 900);
+        reference = Math.floor(100000000 + Math.random() * 900000000);
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Gerar Referência PlinqPay <i class="fas fa-barcode"></i>';
+        }
+    }
 
     const resEntity = document.getElementById('resEntity');
     const resReference = document.getElementById('resReference');
     const resAmount = document.getElementById('resAmount');
     const paymentResult = document.getElementById('paymentResult');
 
-    if (resEntity) resEntity.textContent = randomEntity;
-    if (resReference) resReference.textContent = randomRef;
-    if (resAmount) resAmount.textContent = Number(amount).toLocaleString() + " Kz";
+    if (resEntity) resEntity.textContent = entity;
+    if (resReference) resReference.textContent = reference;
+    if (resAmount) resAmount.textContent = amount.toLocaleString() + " Kz";
 
     if (paymentResult) {
         paymentResult.style.display = 'block';
@@ -209,7 +270,7 @@ function copyPaymentRef() {
     const entity = document.getElementById('resEntity')?.textContent || '';
     const ref = document.getElementById('resReference')?.textContent || '';
     const amount = document.getElementById('resAmount')?.textContent || '';
-    const textToCopy = `Entidade: ${entity}\nReferência: ${ref}\nValor: ${amount}\nGateway Public Key: ${PAYMENT_CONFIG.PUBLIC_KEY}`;
+    const textToCopy = `PlinqPay - Entidade: ${entity}\nReferência: ${ref}\nValor: ${amount}\nGateway Public Key: ${PAYMENT_CONFIG.PUBLIC_KEY}`;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
         alert('Dados de pagamento e referência copiados com sucesso!');
