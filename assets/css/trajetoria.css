@@ -55,28 +55,32 @@
 
 /* HEADER: Título + Redes Sociais */
 .exp-header {
-    padding: 25px;
-    flex: 1;
+    padding: 20px 25px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.exp-header h3 {
+.exp-company h3 {
     color: var(--light);
     font-size: 1.1rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 0 0 10px 0;
+    margin: 0 0 4px 0;
 }
 
 .job-role-inline {
     display: block;
     color: var(--primary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 0;
+}
+
+.job-role-inline i {
+    margin-right: 2px;
 }
 
 .work-period-inline {
@@ -86,7 +90,6 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 10px;
 }
 
 .work-period-inline i {
@@ -94,19 +97,9 @@
     font-size: 0.7rem;
 }
 
-.company-description {
-    color: #a0a0a5;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    margin-bottom: 10px;
-}
-
 .exp-socials {
     display: flex;
     gap: 12px;
-    margin-top: auto;
 }
 
 .exp-socials a {
@@ -117,6 +110,44 @@
 
 .exp-socials a:hover {
     color: var(--primary);
+}
+
+/* BODY: Função + Datas + Descrição */
+.exp-body {
+    padding: 25px;
+    flex: 1;
+}
+
+.job-role {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.work-period {
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.work-period i {
+    font-size: 0.9rem;
+}
+
+.company-description {
+    color: #a0a0a5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Achievement Badge */
@@ -264,7 +295,18 @@
         height: auto;
     }
 
-    .exp-header {
+    .exp-header, .exp-body, .exp-footer {
         padding: 20px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .exp-socials {
+        width: 100%;
+        justify-content: flex-start;
     }
 }
