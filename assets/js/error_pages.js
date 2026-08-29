@@ -60,7 +60,6 @@ function redirectToError(currentSectionId = null) {
         window.location.href = "views/404.html?code=404";
     }
 }
-}
 
 /* --- Listener de Cliques e ValidaÃ§Ã£o de Links --- */
 document.addEventListener('click', async (e) => {

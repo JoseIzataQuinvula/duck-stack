@@ -1,12 +1,15 @@
 const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.getElementById('nav-links');
-const icon = menuBtn.querySelector('i');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-});
+if (menuBtn && navLinks) {
+    const icon = menuBtn.querySelector('i');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+}
 
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
