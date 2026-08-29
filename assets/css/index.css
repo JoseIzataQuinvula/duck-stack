@@ -152,7 +152,6 @@ nav {
 main.container {
     flex: 1;
     padding: 120px 20px 40px 20px !important;
-    contain: content;
 }
 
 footer {
@@ -322,19 +321,9 @@ input[type=number] {
         background: transparent !important;
     }
 
-    /* Alinha o início das bolinhas exatamente com o início do título H2 */
-    .projects-pagination, .companies-pagination {
-        display: flex !important;
-        justify-content: flex-start !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        gap: 8px !important;
-        flex: 0 1 auto !important;
-    }
-
     /* Alinha o fim do botão exatamente com o fim dos cartões */
     .view-more-container {
-        margin: 0 !important;
+        margin-top: 30px !important;
         padding: 0 !important;
         flex: 0 1 auto !important;
         text-align: right !important;
@@ -346,4 +335,57 @@ input[type=number] {
         letter-spacing: 1px !important;
         margin: 0 !important;
     }
+}
+
+/* Lightbox de Imagens */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    contain: none;
+    isolation: isolate;
+}
+
+.img-lightbox.active {
+    display: flex;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 15px;
+    right: 25px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100000;
+    line-height: 1;
+    padding: 0;
+}
+
+.lightbox-close:hover {
+    color: var(--primary);
+}
+
+.lightbox-img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
 }

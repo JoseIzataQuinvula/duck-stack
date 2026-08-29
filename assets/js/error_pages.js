@@ -13,12 +13,11 @@ const extensoesVerificaveis = ['.zip', '.exe', '.pdf', '.rar', '.7z', '.html', '
  * Corrigido: Se for index.html, limpa para a raiz "/" para evitar erro de Ã­ndice
  */
 function cleanVisualURL() {
-    // CORREÃ‡ÃƒO: Pulamos a manipulaÃ§Ã£o de histÃ³rico se estivermos no protocolo file://
-    // pois o browser bloqueia replaceState em origens locais por seguranÃ§a.
     if (window.location.protocol === 'file:') return;
 
     const path = window.location.pathname;
     const hash = window.location.hash;
+    const search = window.location.search;
 
     let newUrl = path;
     if (path.endsWith('index.html') || path.endsWith('/index')) {
@@ -27,9 +26,11 @@ function cleanVisualURL() {
         newUrl = path.replace(/\.html$/, '');
     }
 
+    newUrl += search;
+
     if (hash) {
         setTimeout(() => {
-            window.history.replaceState(null, '', newUrl);
+            window.history.replaceState(null, '', newUrl + hash);
         }, 50);
     } else {
         window.history.replaceState(null, '', newUrl);
@@ -196,31 +197,35 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 /* --- InicializaÃ§Ã£o --- */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Limpa a URL imediatamente
+    // 1. Lê os parâmetros ANTES de limpar a URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    // 2. Limpa a URL visualmente
     cleanVisualURL();
 
-    // 1.5. Renderização dinâmica do Erro (403, 404, 503)
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code') || '404';
-    const codeEl = document.querySelector('.error-code');
-    const titleEl = document.querySelector('.error-content h1');
-    const descEl = document.querySelector('.error-content p');
+    // 3. Renderização dinâmica do Erro (403, 404, 503)
+    if (code) {
+        const codeEl = document.querySelector('.error-code');
+        const titleEl = document.querySelector('.error-content h1');
+        const descEl = document.querySelector('.error-content p');
 
-    if (code === '403') {
-        if (codeEl) codeEl.textContent = '403';
-        if (titleEl) titleEl.textContent = 'Acesso Restrito';
-        if (descEl) descEl.textContent = 'Você não tem permissão para acessar esta área protegida do Duck Stack.';
-        document.title = '403 - Acesso Negado | Duck Stack';
-    } else if (code === '503') {
-        if (codeEl) codeEl.textContent = '503';
-        if (titleEl) titleEl.textContent = 'Conteúdo Indisponível';
-        if (descEl) descEl.textContent = 'De momento, este conteúdo ainda não se encontra disponível para o público.';
-        document.title = '503 - Indisponível | Duck Stack';
-    } else {
-        if (codeEl) codeEl.textContent = '404';
-        if (titleEl) titleEl.textContent = 'Caminho Perdido';
-        if (descEl) descEl.textContent = 'Parece que o link que você tentou acessar está quebrado ou não existe mais.';
-        document.title = '404 - Caminho Perdido | Duck Stack';
+        if (code === '403') {
+            if (codeEl) codeEl.textContent = '403';
+            if (titleEl) titleEl.textContent = 'Acesso Restrito';
+            if (descEl) descEl.textContent = 'Você não tem permissão para acessar esta área protegida do Duck Stack.';
+            document.title = '403 - Acesso Negado | Duck Stack';
+        } else if (code === '503') {
+            if (codeEl) codeEl.textContent = '503';
+            if (titleEl) titleEl.textContent = 'Conteúdo Indisponível';
+            if (descEl) descEl.textContent = 'De momento, este conteúdo ainda não se encontra disponível para o público.';
+            document.title = '503 - Indisponível | Duck Stack';
+        } else {
+            if (codeEl) codeEl.textContent = '404';
+            if (titleEl) titleEl.textContent = 'Caminho Perdido';
+            if (descEl) descEl.textContent = 'Parece que o link que você tentou acessar está quebrado ou não existe mais.';
+            document.title = '404 - Caminho Perdido | Duck Stack';
+        }
     }
 
     // 2. Configura o botÃ£o de voltar

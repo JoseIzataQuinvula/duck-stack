@@ -11,49 +11,43 @@
     margin-top: 25px;
 }
 
-/* Novo Card Profissional */
 .company-card {
     background: #111112;
-    border: 1px solid #2a2a2c;
+    border: none;
     display: flex;
     flex-direction: column;
     height: 100%;
     transition: none !important;
     position: relative;
     overflow: hidden;
+    border-radius: 0;
 }
 
 .company-card:hover {
-    border-color: var(--primary);
     transform: none !important;
 }
 
-/* Logo da Empresa */
 .company-logo {
     width: 100%;
     height: 200px;
-    background: #1a1a1c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #111112;
+    display: block;
     padding: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border: none;
     overflow: hidden;
+    line-height: 0;
 }
 
 .company-logo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.8);
-    transition: filter 0.3s ease;
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
-.company-card:hover .company-logo img {
-    filter: grayscale(0%) brightness(1);
-}
-
-/* HEADER: Título + Redes Sociais */
 .exp-header {
     padding: 20px 25px;
     display: flex;
@@ -77,8 +71,8 @@
 
 .exp-info-row {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
     margin-top: 8px;
 }
 
@@ -94,10 +88,6 @@
     text-transform: uppercase;
 }
 
-.job-role-inline i {
-    margin-right: 2px;
-}
-
 .work-period-inline {
     display: block;
     color: #888;
@@ -105,11 +95,6 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.work-period-inline i {
-    margin-right: 4px;
-    font-size: 0.7rem;
 }
 
 .company-description {
@@ -136,7 +121,6 @@
     color: var(--primary);
 }
 
-/* Achievement Badge */
 .achievement-badge {
     display: inline-flex;
     align-items: center;
@@ -155,69 +139,6 @@
     color: #ffd700;
 }
 
-/* Social Links Small */
-.social-link-sm {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px 10px;
-    border-radius: 4px;
-    color: #ccc;
-    font-size: 0.75rem;
-    text-decoration: none;
-    transition: none !important;
-}
-
-.social-link-sm:hover {
-    background: var(--primary);
-    color: #000;
-    border-color: var(--primary);
-}
-
-/* FOOTER: Website Link */
-.exp-footer {
-    padding: 20px 25px;
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.company-site {
-    color: var(--light);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.company-site i {
-    font-size: 0.75rem;
-    color: var(--primary);
-}
-
-.company-site:hover {
-    color: var(--primary);
-}
-
-/* Tag de Status (Opcional) */
-.status-tag {
-    display: inline-block;
-    background: rgba(255, 159, 28, 0.1);
-    color: var(--primary);
-    font-size: 0.6rem;
-    padding: 2px 8px;
-    margin-top: 5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    border: 1px solid rgba(255, 159, 28, 0.2);
-}
-
 /* Responsividade */
 @media (max-width: 992px) {
     .companies-grid {
@@ -225,42 +146,35 @@
     }
 }
 
-/* Paginação de empresas - sempre visível como os projetos */
-.companies-pagination {
-    display: none;
-    justify-content: flex-start;
-    gap: 10px;
-    margin: 0;
-}
-
-.company-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    padding: 0;
-}
-
-.company-dot.active {
-    background: var(--primary);
-    transform: scale(1.1);
-}
-
 @media (max-width: 768px) {
     #companies {
         padding: 50px 0;
     }
 
-    .companies-grid,
-    .all-companies-grid {
-        display: grid;
-        grid-template-columns: 1fr;
+    .companies-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 20px;
-        padding: 0;
         margin-top: 20px;
+        padding: 0;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .companies-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .companies-grid .company-card {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        min-width: 0;
+    }
+
+    .view-more-container {
+        margin-top: 30px !important;
     }
 
     .company-card {
@@ -296,9 +210,5 @@
     .exp-socials {
         width: 100%;
         justify-content: flex-start;
-    }
-
-    .achievement-badge {
-        width: 100%;
     }
 }

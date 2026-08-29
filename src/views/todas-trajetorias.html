@@ -102,7 +102,7 @@
             <!-- Hedging Consult -->
             <article class="company-card" data-tech="Programador">
                 <div class="company-logo">
-                    <img src="../../assets/img/trajetorias/hedging-consult.jpeg" alt="Hedging Consult">
+                    <img src="/assets/img/trajetorias/hedging-consult.jpeg" alt="Hedging Consult" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
                 </div>
                 <div class="exp-header">
                     <div class="exp-title-row">
@@ -126,7 +126,7 @@
             <!-- DabandaGames Studios -->
             <article class="company-card" data-tech="Fundador Desenvolvedor">
                 <div class="company-logo">
-                    <img src="../../assets/img/trajetorias/dabandagames-studios.png" alt="DabandaGames Studios">
+                    <img src="/assets/img/trajetorias/dabandagames-studios.png" alt="DabandaGames Studios" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
                 </div>
                 <div class="exp-header">
                     <div class="exp-title-row">
@@ -151,7 +151,7 @@
             <!-- GameJamPlus -->
             <article class="company-card" data-tech="Fundador Desenvolvedor">
                 <div class="company-logo">
-                    <img src="../../assets/img/trajetorias/gamejamplus.png" alt="GameJamPlus 10th Edition">
+                    <img src="/assets/img/trajetorias/gameJamplus-10th-dition.png" alt="GameJamPlus 10th Edition" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
                 </div>
                 <div class="exp-header">
                     <div class="exp-title-row">
@@ -172,18 +172,38 @@
                             <p class="company-description">Competição global de criação de jogos com 387 participantes de todo o mundo.</p>
                         </div>
                     </div>
-                    <div class="achievement-badge">
-                        <i class="fas fa-trophy"></i>
-                        <span>Melhor de Angola / 3º Lugar - Best of Africa</span>
+                </div>
+            </article>
+
+            <!-- CrazyGames x Construct Game Jam -->
+            <article class="company-card" data-tech="Fundador Desenvolvedor">
+                <div class="company-logo">
+                    <img src="/assets/img/trajetorias/crazy-construct.webp" alt="CrazyGames x Construct Game Jam" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
+                </div>
+                <div class="exp-header">
+                    <div class="exp-title-row">
+                        <h3>CrazyGames x Construct Game Jam</h3>
+                        <div class="exp-socials">
+                            <a href="https://crazygames.indiehero.io/cgcgj-lp/" target="_blank"><i class="fas fa-globe"></i></a>
+                            <a href="https://itch.io/jam/crazygames-x-construct-game-jam-2026" target="_blank"><i class="fab fa-itch-io"></i></a>
+                        </div>
                     </div>
-                    <p class="company-description" style="margin-top: 8px; font-size: 0.8rem; color: #aaa;">Jogo: "The Silence of Cazenga" — Melhor equipa de Angola</p>
+                    <div class="exp-info-row">
+                        <div class="exp-info-left">
+                            <span class="job-role-inline">Participante / Desenvolvedor</span>
+                            <span class="work-period-inline"><i class="far fa-calendar-alt"></i> Jun 2026</span>
+                        </div>
+                        <div>
+                            <p class="company-description">Game jam online co-organizada pela CrazyGames e GameJamPlus, em parceria com a Construct. Maratona de desenvolvimento de jogos web.</p>
+                        </div>
+                    </div>
                 </div>
             </article>
 
             <!-- Quadrinhos Angola -->
             <article class="company-card" data-tech="Fundador">
                 <div class="company-logo">
-                    <img src="../../assets/img/trajetorias/quadrinhos-angola.jpg" alt="Quadrinhos Angola">
+                    <img src="/assets/img/trajetorias/quadrinhos-angola.jpg" alt="Quadrinhos Angola" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
                 </div>
                 <div class="exp-header">
                     <div class="exp-title-row">
@@ -206,7 +226,7 @@
             <!-- Xindasoft -->
             <article class="company-card" data-tech="Estagiário">
                 <div class="company-logo">
-                    <img src="../../assets/img/trajetorias/xindasoft.jpg" alt="Xindasoft">
+                    <img src="/assets/img/trajetorias/xindasoft.jpg" alt="Xindasoft" onclick="openLightbox(this.src, this.alt)" style="cursor:pointer">
                 </div>
                 <div class="exp-header">
                     <div class="exp-title-row">
@@ -231,6 +251,11 @@
             </div>
         </div>
     </main>
+
+    <div class="img-lightbox" id="imgLightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
 
     <div id="contactModal" class="share-modal" style="display: none;">
         <div class="share-content">
@@ -308,8 +333,17 @@
 
     <script src="../../assets/js/index.js"></script>
     <script src="../../assets/js/trajetoria.js"></script>
+    <script src="../../assets/js/lightbox.js"></script>
     
     <script src="../../assets/js/floating-buttons.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.company-logo').forEach(logo => {
+            logo.style.cursor = 'pointer';
+        });
+    });
+    </script>
     
     
     <button type="button" class="btn-side btn-coffee" onclick="openSupportModal()"><i class="fas fa-coffee"></i></button>
