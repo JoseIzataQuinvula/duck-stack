@@ -302,7 +302,15 @@ footer {
         transform: translateX(8px);
     }
 
-    /* Estilos de ALINHAMENTO RIGOROSO para os controlos no mobile */
+    /* Remove number input arrows/spinners across all browsers */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
     .section-controls {
         display: flex !important;
         justify-content: space-between !important;
