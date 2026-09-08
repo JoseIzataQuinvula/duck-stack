@@ -156,10 +156,10 @@ main.container {
 
 footer {
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 20px;
     border-top: 1px solid var(--gray);
     color: var(--text-muted);
-    font-size: 100%;
+    font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -192,11 +192,11 @@ footer a:hover {
 
 @media (max-width: 480px) {
     footer {
-        font-size: 0.75rem;
-        padding: 15px 0;
-        letter-spacing: 0.3px;
+        font-size: 0.62rem; /* Reduzido ligeiramente para caber melhor */
+        padding: 30px 15px;
+        letter-spacing: 0.3px; /* Espaço mais apertado para caber o nome longo */
         line-height: 1.5;
-        white-space: normal;
+        white-space: normal; /* Permite quebrar linha se o nome for muito grande */
     }
 }
 
