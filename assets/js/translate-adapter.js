@@ -7,7 +7,7 @@
        try {
            new google.translate.TranslateElement({
                pageLanguage: 'pt',
-               includedLanguages: 'pt,en',
+               includedLanguages: 'en',
                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                autoDisplay: false
            }, 'google_translate_element');
@@ -16,23 +16,33 @@
        }
    
        const savedLang = localStorage.getItem('duck-stack-lang') || 'pt';
-       const select = document.querySelector('.goog-te-combo');
-       if (select && select.value !== savedLang) {
-           select.value = savedLang;
-           select.dispatchEvent(new Event('change'));
+       
+       if (savedLang === 'en') {
+           const select = document.querySelector('.goog-te-combo');
+           if (select && select.value !== 'en') {
+               select.value = 'en';
+               select.dispatchEvent(new Event('change'));
+           }
        }
    }
    
    function changeLanguage(langCode) {
-       const cookieValue = `/auto/${langCode}`;
-       document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
-       if (location.hostname && location.hostname !== 'localhost') {
-           document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
+       if (langCode === 'pt') {
+           document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+           if (location.hostname && location.hostname !== 'localhost') {
+               document.cookie = `googtrans=; path=/; domain=.${location.hostname}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+           }
+           localStorage.setItem('duck-stack-lang', 'pt');
+           location.reload();
+       } else {
+           const cookieValue = `/auto/${langCode}`;
+           document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
+           if (location.hostname && location.hostname !== 'localhost') {
+               document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
+           }
+           localStorage.setItem('duck-stack-lang', langCode);
+           location.reload();
        }
-       localStorage.setItem('duck-stack-lang', langCode);
-       
-       // Reload imediato para máxima velocidade
-       location.reload();
    }
    
    function toggleLanguage() {
@@ -45,7 +55,6 @@
        const btn = document.getElementById('custom-lang-btn');
        if (btn) {
            const currentLang = localStorage.getItem('duck-stack-lang') || 'pt';
-           // Exibe o idioma para o qual vai mudar ou o atual (ex: se PT, mostra EN para mudar para Inglês)
            btn.textContent = currentLang === 'pt' ? 'EN' : 'PT';
            btn.title = currentLang === 'pt' ? 'Mudar para Inglês (English)' : 'Mudar para Português';
            
