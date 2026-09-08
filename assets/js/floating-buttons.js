@@ -29,3 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nota: A logica de traducao agora reside em i18n.js
 });
+
+function copyText(text, event) {
+    if (event) event.stopPropagation();
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event ? event.target.closest('button') : null;
+        if (btn) {
+            const icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-copy');
+                icon.classList.add('fa-check');
+                setTimeout(() => {
+                    icon.classList.remove('fa-check');
+                    icon.classList.add('fa-copy');
+                }, 1500);
+            }
+        }
+    });
+}
