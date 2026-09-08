@@ -98,6 +98,7 @@
             <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                 <button onclick="showPayTab('multicaixa')" id="tab-multicaixa" class="pay-tab active">Multicaixa</button>
                 <button onclick="showPayTab('paypal')" id="tab-paypal" class="pay-tab">PayPal</button>
+                <button onclick="showPayTab('kwik')" id="tab-kwik" class="pay-tab">Kwik</button>
             </div>
 
             <div id="pay-multicaixa" class="pay-content" style="text-align: center;">
@@ -120,6 +121,20 @@
                 <img src="../../assets/img/paypay-logo.png" alt="PayPal" style="max-width: 120px; margin-bottom: 15px;">
                 <div style="background: #161618; border: 1px solid #333; padding: 15px; border-radius: 8px;">
                     <img src="../../assets/img/paypay-qr-code-livre.png" alt="PayPal QR Code" style="max-width: 200px; width: 100%;">
+                </div>
+            </div>
+
+            <div id="pay-kwik" class="pay-content" style="display: none; text-align: center;">
+                <img src="../../assets/img/kiwik-logo.png" alt="Kwik" style="max-width: 120px; margin-bottom: 15px;">
+                <div style="background: #161618; border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <img src="../../assets/img/kwik-qr-code-livre.png" alt="Kwik QR Code" style="max-width: 200px; width: 100%;">
+                </div>
+                <div style="background: #161618; border: 1px solid #333; padding: 20px; border-radius: 8px; text-align: left;">
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 8px;">IBAN</p>
+                    <p style="color: #fff; font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between; word-break: break-all;">
+                        AO06 0420 0000 0000 1215 02634
+                        <button onclick="copyText('AO06042000000000121502634', event)" style="background: transparent; border: none; color: var(--primary); cursor: pointer; font-size: 1rem; flex-shrink: 0; margin-left: 10px;"><i class="fas fa-copy"></i></button>
+                    </p>
                 </div>
             </div>
         </div>
