@@ -47,3 +47,10 @@ function copyText(text, event) {
         }
     });
 }
+
+function showPayTab(tab) {
+    document.querySelectorAll('.pay-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pay-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('pay-' + tab).style.display = 'block';
+    document.getElementById('tab-' + tab).classList.add('active');
+}

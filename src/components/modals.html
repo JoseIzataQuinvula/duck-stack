@@ -94,29 +94,56 @@
             </h3>
             <button onclick="closeSupportModal()" class="close-modal">&times;</button>
         </div>
-        <div class="share-body" style="text-align: center;">
-            <!-- Multicaixa -->
-            <img src="../../assets/img/multicaixa.png" alt="Multicaixa Express" style="max-width: 180px; margin-bottom: 20px;">
-            <div style="background: #161618; border: 1px solid #333; padding: 20px; border-radius: 8px; text-align: left; margin-bottom: 25px;">
-                <p style="color: #888; font-size: 0.85rem; margin-bottom: 8px;">Entity ID</p>
-                <p style="color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
-                    10116
-                    <button onclick="copyText('10116', event)" style="background: transparent; border: none; color: var(--primary); cursor: pointer; font-size: 1rem;"><i class="fas fa-copy"></i></button>
-                </p>
-                <p style="color: #888; font-size: 0.85rem; margin-bottom: 8px;">Reference</p>
-                <p style="color: #fff; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between;">
-                    926 099 070
-                    <button onclick="copyText('926099070', event)" style="background: transparent; border: none; color: var(--primary); cursor: pointer; font-size: 1rem;"><i class="fas fa-copy"></i></button>
-                </p>
+        <div class="share-body">
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button onclick="showPayTab('multicaixa')" id="tab-multicaixa" class="pay-tab active">Multicaixa</button>
+                <button onclick="showPayTab('paypal')" id="tab-paypal" class="pay-tab">PayPal</button>
             </div>
-            <!-- PayPal -->
-            <img src="../../assets/img/paypay-logo.png" alt="PayPal" style="max-width: 120px; margin-bottom: 15px;">
-            <div style="background: #161618; border: 1px solid #333; padding: 15px; border-radius: 8px;">
-                <img src="../../assets/img/paypay-qr-code-livre.png" alt="PayPal QR Code" style="max-width: 200px; width: 100%;">
+
+            <div id="pay-multicaixa" class="pay-content" style="text-align: center;">
+                <img src="../../assets/img/multicaixa.png" alt="Multicaixa Express" style="max-width: 180px; margin-bottom: 20px;">
+                <div style="background: #161618; border: 1px solid #333; padding: 20px; border-radius: 8px; text-align: left;">
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 8px;">Entity ID</p>
+                    <p style="color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
+                        10116
+                        <button onclick="copyText('10116', event)" style="background: transparent; border: none; color: var(--primary); cursor: pointer; font-size: 1rem;"><i class="fas fa-copy"></i></button>
+                    </p>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 8px;">Reference</p>
+                    <p style="color: #fff; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between;">
+                        926 099 070
+                        <button onclick="copyText('926099070', event)" style="background: transparent; border: none; color: var(--primary); cursor: pointer; font-size: 1rem;"><i class="fas fa-copy"></i></button>
+                    </p>
+                </div>
+            </div>
+
+            <div id="pay-paypal" class="pay-content" style="display: none; text-align: center;">
+                <img src="../../assets/img/paypay-logo.png" alt="PayPal" style="max-width: 120px; margin-bottom: 15px;">
+                <div style="background: #161618; border: 1px solid #333; padding: 15px; border-radius: 8px;">
+                    <img src="../../assets/img/paypay-qr-code-livre.png" alt="PayPal QR Code" style="max-width: 200px; width: 100%;">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .pay-tab {
+        flex: 1;
+        padding: 10px;
+        background: #161618;
+        border: 1px solid #333;
+        color: #888;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .pay-tab.active {
+        background: var(--primary);
+        color: #000;
+        border-color: var(--primary);
+    }
+</style>
 
 <button class="btn-side btn-lang" id="custom-lang-btn" style="transition: none !important; transform: none !important;">PT</button>
 <div id="google_translate_element" style="position:fixed; top:-1000px; left:-1000px; width:1px; height:1px; overflow:hidden;"></div>
