@@ -58,8 +58,8 @@
        if (btn && !btn.dataset.langInit) {
            btn.dataset.langInit = 'true';
            const currentLang = localStorage.getItem('duck-stack-lang') || 'pt';
-           btn.textContent = currentLang === 'pt' ? 'EN' : 'PT';
-           btn.title = currentLang === 'pt' ? 'Mudar para Inglês (English)' : 'Mudar para Português';
+           btn.textContent = currentLang === 'pt' ? 'PT' : 'EN';
+           btn.title = currentLang === 'pt' ? 'Mudar para English' : 'Mudar para Português';
            
            btn.addEventListener('click', (e) => {
                e.preventDefault();
