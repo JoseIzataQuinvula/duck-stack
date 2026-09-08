@@ -430,3 +430,41 @@ input[type=number] {
     border-radius: 0;
     outline: none;
 }
+
+/* Mobile - Fontes reduzidas */
+@media (max-width: 480px) {
+    .section-header .tagline {
+        font-size: 0.7rem;
+    }
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    .project-info h3 {
+        font-size: 0.9rem;
+    }
+    .project-tags .tag-html,
+    .project-tags .tag-css,
+    .project-tags .tag-js,
+    .project-tags .tag-python {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+    }
+    .company-card h3 {
+        font-size: 0.9rem;
+    }
+    .company-description {
+        font-size: 0.75rem;
+    }
+    .job-role-inline {
+        font-size: 0.75rem;
+    }
+    .work-period-inline {
+        font-size: 0.7rem;
+    }
+    .footer-social a {
+        font-size: 0.85rem;
+    }
+    .footer-copy, .footer-links {
+        font-size: 0.65rem;
+    }
+}
