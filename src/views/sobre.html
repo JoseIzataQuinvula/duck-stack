@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6679301976342238"
+         crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://joseizataquinvula.pages.dev/src/views/sobre.html" />
+    <title>Sobre - José Izata Quinvula | Duck Stack</title>
+    <meta name="description" content="Conheça José Izata Quinvula, Desenvolvedor Full Stack em Luanda, Angola. Especialista em Node.js, React, Python e soluções digitais escaláveis.">
+    <meta name="keywords" content="José Izata Quinvula, sobre, desenvolvedor full stack, Luanda, Angola, Node.js, React, Python, portfólio">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Sobre - José Izata Quinvula | Duck Stack">
+    <meta property="og:description" content="Conheça José Izata Quinvula, Desenvolvedor Full Stack em Luanda, Angola.">
+    <meta property="og:image" content="https://joseizataquinvula.pages.dev/assets/img/jose-quinvula-perfil.jpg">
+    <meta property="og:url" content="https://joseizataquinvula.pages.dev/src/views/sobre.html">
+    <meta property="og:site_name" content="Duck Stack | José Izata Quinvula">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Sobre - José Izata Quinvula">
+    <meta property="twitter:description" content="Desenvolvedor Full Stack em Luanda, Angola.">
+    <meta property="twitter:image" content="https://joseizataquinvula.pages.dev/assets/img/jose-quinvula-perfil.jpg">
+
+    <link rel="icon" type="image/png" href="../../duck-favicon.png">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel='stylesheet' href="../../assets/css/index.css">
+    <link rel='stylesheet' href="../../assets/css/sobre.css">
+    <link rel='stylesheet' href="../../assets/css/floating-buttons.css">
+    <style>
+        .about-content {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .about-hero {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .about-hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary, #4da6ff);
+            flex-shrink: 0;
+        }
+        .about-hero-text h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .about-hero-text .subtitle {
+            color: var(--primary, #4da6ff);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .about-hero-text p {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .about-section {
+            margin-bottom: 35px;
+        }
+        .about-section h2 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+        .about-section p {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .about-section li {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .about-section li::before {
+            content: "▸";
+            color: var(--primary, #4da6ff);
+            position: absolute;
+            left: 0;
+        }
+        .skills-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .skill-tag {
+            background: rgba(77, 166, 255, 0.1);
+            border: 1px solid rgba(77, 166, 255, 0.3);
+            color: var(--primary, #4da6ff);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .social-links-about {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-links-about a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-links-about a:hover {
+            background: var(--primary, #4da6ff);
+            color: #000;
+            border-color: var(--primary, #4da6ff);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .cta-btn.primary {
+            background: var(--primary, #4da6ff);
+            color: #000;
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            border: 1px solid #444;
+            color: #ccc;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .about-hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .about-hero img {
+                width: 150px;
+                height: 150px;
+            }
+            .skills-highlight {
+                justify-content: center;
+            }
+            .social-links-about {
+                justify-content: center;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <header>
+        <nav class="container">
+            <a href="../../index.html" class="logo">
+                <img src="../../duck-favicon.png" alt="Duck Stack Logo" class="logo-img">
+                <span class="highlight">DUCK</span>STACK
+            </a>
+            <div class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../../index.html#sobre">SOBRE</a></li>
+                <li><a href="../../index.html#skills">HABILIDADES</a></li>
+                <li><a href="../../index.html#projects">PROJETOS</a></li>
+                <li><a href="../../index.html#companies">TRAJETÓRIA</a></li>
+                <li><a href="certificados.html">CERTIFICADOS</a></li>
+                <li><a href="../../index.html#contact">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="about-content">
+            <div class="about-hero">
+                <img src="../../assets/img/jose-quinvula-perfil.jpg" alt="José Izata Quinvula - Desenvolvedor Full Stack em Luanda">
+                <div class="about-hero-text">
+                    <h1>José Izata Quinvula</h1>
+                    <p class="subtitle">Desenvolvedor Full Stack</p>
+                    <p>Sou um desenvolvedor Full Stack apaixonado por transformar código em soluções digitais robustas e escaláveis. Com base em Luanda, Angola, atuo em todas as etapas do ciclo de desenvolvimento de software, desde a conceção e diseño de interfaces até a implementação de backends performáticos e otimizados.</p>
+                    <div class="social-links-about">
+                        <a href="https://www.linkedin.com/in/jos%C3%A9-izata-quinvula-9287a3389/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/JoseIzataQuinvula" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/jose.izata.quinvula/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/joseizataquinvula/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UClVHPfSwp2m7iyPgllg0oEQ" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="../../assets/docs/cv-jose-quinvula-pt.txt" class="cta-btn primary" download><i class="fas fa-download"></i> Baixar CV</a>
+                        <a href="../../index.html#contact" class="cta-btn secondary"><i class="fas fa-envelope"></i> Contactar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Sobre Mim</h2>
+                <p>Chamo-me José Izata Quinvula, sou conhecido no meio de desenvolvimento pelo meu projeto pessoal "Duck Stack". Sou um programador Full Stack com foco em criar soluções web completas, desde aplicações front-end responsivas e modernas até APIs RESTful robustas e sistemas de gestão de bases de dados.</p>
+                <p>A minha paixão pela tecnologia começou cedo e desde então tenho vindo a aperfeiçoar as minhas competências em diversas áreas do desenvolvimento de software. Acredito que a boa programação deve ser limpa, eficiente e orientada para resolver problemas reais.</p>
+                <p>Atualmente trabalho como Programador na Hedging Consult, onde contribuo para o desenvolvimento de sistemas internos e arquitetura de bases de dados. Sou também co-fundador e desenvolvedor na DabandaGames Studios, um estúdio angolano focado em criação de jogos no Unreal Engine.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Especialidades Técnicas</h2>
+                <p>Trabalho com uma vasta gama de tecnologias modernas para entregar soluções completas:</p>
+                <div class="skills-highlight">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Unreal Engine</span>
+                    <span class="skill-tag">Cloudflare</span>
+                    <span class="skill-tag">SEO</span>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>O Que Faço</h2>
+                <ul>
+                    <li><strong>Desenvolvimento Front-End:</strong> Criação de interfaces responsivas, acessíveis e visualmente apelativas utilizando HTML5, CSS3, JavaScript e frameworks como React.</li>
+                    <li><strong>Desenvolvimento Back-End:</strong> Construção de APIs RESTful escaláveis com Node.js e Python, incluindo autenticação, gestão de dados e integrações com serviços externos.</li>
+                    <li><strong>Gestão de Bases de Dados:</strong> Design e otimização de bases de dados relacionais (PostgreSQL) e não-relacionais (MongoDB).</li>
+                    <li><strong>Deploy e DevOps:</strong> Configuração de ambientes de deploy contínuo, incluindo Cloudflare Pages, GitHub Actions e servidores.</li>
+                    <li><strong>Jogos e Experiências Interativas:</strong> Desenvolvimento de jogos e experiências interativas utilizando Unreal Engine e ferramentas de game development.</li>
+                    <li><strong>SEO e Performance:</strong> Otimização de sites para motores de busca e melhoria de desempenho web.</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Experiência Profissional</h2>
+                <ul>
+                    <li><strong>Programador — Hedging Consult</strong> (Ago 2025 — Presente): Desenvolvimento de sistemas internos e arquitetura de bases de dados para a empresa.</li>
+                    <li><strong>Co-Fundador / Desenvolvedor — DabandaGames Studios</strong> (Fev 2022 — Presente): Criação de jogos no Unreal Engine e experiências interativas. Responsável pela parte técnica e de programação do estúdio.</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Formação e Certificações</h2>
+                <p>Invisto continuamente na minha formação através de cursos e certificações nas áreas de desenvolvimento web, programação e tecnologias emergentes. Consulte a minha secção de <a href="certificados.html" style="color: var(--primary, #4da6ff);">certificados</a> para mais detalhes.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Objetivos</h2>
+                <p>O meu objetivo é continuar a crescer como profissional de tecnologia, contribuindo para projetos que façam a diferença. Busco sempre aprender novas ferramentas e metodologias para entregar soluções cada vez melhores aos meus clientes e utilizadores.</p>
+                <p>Acredito no poder da tecnologia para transformar negócios e vidas, e é isso que me motiva todos os dias.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Contacto</h2>
+                <p>Se deseja trabalhar comigo, discutir um projeto ou simplesmente trocar ideias sobre tecnologia, não hesite em contactar-me:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:joseizataquinvula885@gmail.com" style="color: var(--primary, #4da6ff);">joseizataquinvula885@gmail.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jos%C3%A9-izata-quinvula-9287a3389/" target="_blank" style="color: var(--primary, #4da6ff);">José Izata Quinvula</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/JoseIzataQuinvula" target="_blank" style="color: var(--primary, #4da6ff);">JoseIzataQuinvula</a></li>
+                    <li><strong>Localização:</strong> Luanda, Angola</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../views/sobre.html">Sobre</a>
+                <a href="../views/politica-privacidade.html">Política de Privacidade</a>
+            </div>
+            <p>&copy; 2025 - 2026 DUCKSTACK | JOSÉ IZATA QUINVULA</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/floating-buttons.js"></script>
+</body>
+</html>
