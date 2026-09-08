@@ -18,31 +18,33 @@
        const savedLang = localStorage.getItem('duck-stack-lang') || 'pt';
        
        if (savedLang === 'en') {
-           const select = document.querySelector('.goog-te-combo');
-           if (select && select.value !== 'en') {
-               select.value = 'en';
-               select.dispatchEvent(new Event('change'));
-           }
+           setTimeout(() => {
+               const select = document.querySelector('.goog-te-combo');
+               if (select) {
+                   select.value = 'en';
+                   select.dispatchEvent(new Event('change'));
+               }
+           }, 500);
        }
    }
    
    function changeLanguage(langCode) {
+       localStorage.setItem('duck-stack-lang', langCode);
+       
        if (langCode === 'pt') {
-           document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+           document.cookie = 'googtrans=; path=/; max-age=0';
            if (location.hostname && location.hostname !== 'localhost') {
-               document.cookie = `googtrans=; path=/; domain=.${location.hostname}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+               document.cookie = `googtrans=; path=/; domain=.${location.hostname}; max-age=0`;
            }
-           localStorage.setItem('duck-stack-lang', 'pt');
-           location.reload();
        } else {
            const cookieValue = `/auto/${langCode}`;
            document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
            if (location.hostname && location.hostname !== 'localhost') {
                document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
            }
-           localStorage.setItem('duck-stack-lang', langCode);
-           location.reload();
        }
+       
+       location.reload();
    }
    
    function toggleLanguage() {
