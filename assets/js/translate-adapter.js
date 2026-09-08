@@ -53,9 +53,10 @@
        changeLanguage(nextLang);
    }
    
-   document.addEventListener('DOMContentLoaded', () => {
+   function initLangButton() {
        const btn = document.getElementById('custom-lang-btn');
-       if (btn) {
+       if (btn && !btn.dataset.langInit) {
+           btn.dataset.langInit = 'true';
            const currentLang = localStorage.getItem('duck-stack-lang') || 'pt';
            btn.textContent = currentLang === 'pt' ? 'EN' : 'PT';
            btn.title = currentLang === 'pt' ? 'Mudar para Inglês (English)' : 'Mudar para Português';
@@ -66,5 +67,13 @@
                toggleLanguage();
            });
        }
+   }
+   
+   document.addEventListener('DOMContentLoaded', () => {
+       initLangButton();
+       
+       setTimeout(initLangButton, 500);
+       setTimeout(initLangButton, 1000);
+       setTimeout(initLangButton, 2000);
    });
    
