@@ -24,7 +24,7 @@
                    select.value = 'en';
                    select.dispatchEvent(new Event('change'));
                }
-           }, 500);
+           }, 1000);
        }
    }
    
@@ -36,15 +36,15 @@
            if (location.hostname && location.hostname !== 'localhost') {
                document.cookie = `googtrans=; path=/; domain=.${location.hostname}; max-age=0`;
            }
+           location.reload();
        } else {
-           const cookieValue = `/auto/${langCode}`;
+           const cookieValue = `/pt/${langCode}`;
            document.cookie = `googtrans=${cookieValue}; path=/; SameSite=Lax`;
            if (location.hostname && location.hostname !== 'localhost') {
                document.cookie = `googtrans=${cookieValue}; path=/; domain=.${location.hostname}; SameSite=Lax`;
            }
+           location.reload();
        }
-       
-       location.reload();
    }
    
    function toggleLanguage() {
