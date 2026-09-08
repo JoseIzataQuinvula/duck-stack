@@ -157,12 +157,27 @@ main.container {
 footer {
     width: 100%;
     padding: 25px 20px;
-    text-align: left;
     border-top: 1px solid var(--gray);
     color: var(--text-muted);
     font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-links {
+    margin: 0;
+}
+
+.footer-copy {
+    margin: 0;
 }
 
 footer a {
