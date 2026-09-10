@@ -2,26 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://joseizataquinvula.pages.dev/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://joseizataquinvula.pages.dev/views/todos-projetos</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://joseizataquinvula.pages.dev/views/todos-projetos.html</loc>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseizataquinvula.pages.dev/views/todas-trajetorias</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://joseizataquinvula.pages.dev/views/todas-trajetorias.html</loc>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseizataquinvula.pages.dev/views/todas-skills</loc>
-    <lastmod>2026-03-31</lastmod>
+    <loc>https://joseizataquinvula.pages.dev/views/todas-skills.html</loc>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joseizataquinvula.pages.dev/views/sobre.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://joseizataquinvula.pages.dev/views/certificados.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://joseizataquinvula.pages.dev/views/politica-privacidade.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
